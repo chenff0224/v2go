@@ -75,6 +75,7 @@ var dirLinks = []string{
 	"https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/BLACK_VLESS_RUS_mobile.txt",
 	"https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/BLACK_VLESS_RUS.txt",
 	"https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/BLACK_SS+All_RUS.txt",
+	"https://raw.githubusercontent.com/frank-vpl/servers/refs/heads/main/irbox",
 }
 
 type Result struct {
