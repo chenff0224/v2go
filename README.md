@@ -11,8 +11,8 @@ A high-performance Go rewrite of [Epodonios/v2ray-configs](https://github.com/Ep
 - **Port checker** — Integrated TCP connectivity check ensures only reachable servers are included
 - **GeoIP tagging** — Automatic country detection with country codes (e.g. DE, US)
 - **Standardized naming** — Config names in a consistent format (e.g. `v2go | DE | VLESS | 1`)
-- **� Regional sorting** — Configurations split by country into separate subscription files
-- **� Concurrent processing** — Worker pool (300+ workers) for parallel DNS and GeoIP resolution
+- **Regional sorting** — Configurations split by country into separate subscription files
+- **Concurrent processing** — Worker pool (300+ workers) for parallel DNS and GeoIP resolution
 
 ### Performance Comparison
 | Version | Runtime | Success Rate | Unique Servers |
