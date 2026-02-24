@@ -116,9 +116,6 @@ jobs:
           done
         fi
         
-    - name: Pull latest main before push
-      run: git pull --rebase origin main
-
     - name: Commit and push changes
       uses: EndBug/add-and-commit@v9
       with:
