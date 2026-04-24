@@ -1,21 +1,21 @@
 # V2Ray Config Update Summary
-Generated on: 2026-04-24 22:33:52 UTC
+Generated on: 2026-04-24 23:33:50 UTC
 
 ## Configuration Statistics
-- Total unique configurations: 8897
+- Total unique configurations: 8651
 - Protocol breakdown:
-  - vmess: 162 configs
-  - vless: 5483 configs
-  - trojan: 2144 configs
-  - ss: 1106 configs
+  - vmess: 157 configs
+  - vless: 5308 configs
+  - trojan: 2081 configs
+  - ss: 1103 configs
   - ssr: 0 configs
   - hy2: 1 configs
   - tuic: 1 configs
   - warp://: 0 configs
 
 ## Performance
-- Processing time: 70.44 seconds
-- Duplicate removal: 91.7% reduction (from 106840 to 8897)
+- Processing time: 77.12 seconds
+- Duplicate removal: 91.9% reduction (from 107052 to 8651)
 
 ## ⚠️ Failed Links (404 or Errors)
 The following sources could not be reached or returned no data:
