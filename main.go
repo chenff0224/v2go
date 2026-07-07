@@ -36,7 +36,7 @@ import (
 )
 
 const (
-	timeout         = 20 * time.Second
+	timeout         = 800 * time.Millisecond
 	maxWorkers      = 10
 	maxLinesPerFile = 500
 )
@@ -149,7 +149,10 @@ func main() {
 	fmt.Println("Filtering configurations and removing duplicates...")
 	originalCount := len(allConfigs)
 	filteredConfigs, configsByCountry := filterForProtocols(allConfigs, protocols)
-
+	// 强行截取前 1000 个最优质的节点，防止客户端被撑爆
+	if len(filteredConfigs) > 1000 {
+		filteredConfigs = filteredConfigs[:1000]
+	}
 	fmt.Printf("Found %d unique valid configurations\n", len(filteredConfigs))
 	fmt.Printf("Removed %d duplicates\n", originalCount-len(filteredConfigs))
 
