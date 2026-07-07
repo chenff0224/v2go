@@ -47,7 +47,7 @@ var fixedText = `#profile-title: base64:8J+GkyBHaXRodWIgfCBEYW5pYWwgU2FtYWRpIPCf
 #profile-web-page-url: https://github.com/Danialsamadi/v2go
 `
 
-var protocols = []string{"vmess", "vless", "trojan", "ss", "ssr", "hy2", "tuic", "warp://"}
+var protocols = []string{"vless", "trojan", "hy2", "tuic"}
 
 var links = []string{
 	"https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt",
