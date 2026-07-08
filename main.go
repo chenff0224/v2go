@@ -761,7 +761,6 @@ func writeMainConfigFile(filename string, configs []string) error {
 func writeClashYaml(configs []string) {
 	var sb strings.Builder
 
-	// 1. 写入基础网络和 DNS 配置
 	sb.WriteString("port: 7890\nsocks-port: 7891\nallow-lan: true\nmode: rule\nlog-level: info\nexternal-controller: 127.0.0.1:9090\n\n")
 	sb.WriteString("dns:\n  enable: true\n  ipv6: false\n  listen: 0.0.0.0:53\n  enhanced-mode: redir-host\n  nameserver:\n    - 223.5.5.5\n    - 119.29.29.29\n\n")
 
@@ -781,39 +780,27 @@ func writeClashYaml(configs []string) {
 			continue
 		}
 
-		// 安全提取 ID/密码
 		var id string
 		if u.User != nil {
 			id = u.User.Username()
 		}
-		
-		// 【核心防御】：如果 ID 为空，或者属于 VLESS/VMess 但 UUID 长度不是标准的 36 位，直接就地扔掉！
-		// 这样可以 100% 过滤掉所有带 reality 碎渣、残缺 sid 或格式严重错乱的断头节点
 		if id == "" {
 			continue
 		}
-		if (proto == "vless" || proto == "vmess") && len(id) != 36 {
-			continue
-		}
 
-		// 极其简单直接地生成别名，安全且不依赖额外包
 		safeName := fmt.Sprintf("%s-%s-%d", strings.ToUpper(proto), host, i)
 
-		// 2. 根据协议最简化拼装
 		switch proto {
 		case "vmess":
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
-		case "vless":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n", safeName, host, port, id))
-			activeNames = append(activeNames, safeName)
 		case "trojan":
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
+		// ❌ 彻底弃用 Clash 下的 vless 拼装，从根源上断绝 short id 报错的可能性
 		}
 	}
 
-	// 3. 强制加入对 YouTube 深度优化的测速自动挑选组
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 自动挑选(YouTube优化)\n    type: url-test\n    url: https://www.youtube.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range activeNames {
@@ -825,7 +812,6 @@ func writeClashYaml(configs []string) {
 		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
 	}
 
-	// 4. 基础分流规则
 	sb.WriteString("\nrules:\n")
 	sb.WriteString("  - DOMAIN-SUFFIX,youtube.com,🔰 节点选择\n")
 	sb.WriteString("  - DOMAIN-SUFFIX,googlevideo.com,🔰 节点选择\n")
@@ -834,7 +820,6 @@ func writeClashYaml(configs []string) {
 	sb.WriteString("  - GEOIP,CN,DIRECT\n")
 	sb.WriteString("  - MATCH,🔰 节点选择\n")
 
-	// 写入本地
 	_ = os.WriteFile("clash.yaml", []byte(sb.String()), 0644)
 }
 	
