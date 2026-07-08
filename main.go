@@ -758,7 +758,8 @@ func writeMainConfigFile(filename string, configs []string) error {
 	return nil
 }
 
-func writeClashYaml(configs []Config) {
+// 纯字符串兼容版 writeClashYaml
+func writeClashYaml(configs []string) {
 	var sb strings.Builder
 
 	// 1. 基础网络核心配置
@@ -771,37 +772,52 @@ func writeClashYaml(configs []Config) {
 	// 非法字符清洗正则
 	invalidYamlChars := regexp.MustCompile(`['":#,\-\[\]\{\}\(\)\*\?\|&\^]`)
 
-	for i, config := range configs {
-		// 安全过滤：如果没有别名，直接跳过
-		if config.Remarks == "" {
+	for i, configStr := range configs {
+		u, err := url.Parse(configStr)
+		if err != nil {
 			continue
 		}
 
-		// 优雅生成安全别名，防止 YAML 格式因为特殊符号崩溃
-		remarks := invalidYamlChars.ReplaceAllString(config.Remarks, "")
-		remarks = strings.TrimSpace(remarks)
-		if remarks == "" {
-			remarks = fmt.Sprintf("NODE-%d", i)
+		proto := strings.ToLower(u.Scheme)
+		host := u.Hostname()
+		port := u.Port()
+		if host == "" || port == "" {
+			continue
 		}
-		safeName := fmt.Sprintf("%s-%d", remarks, i)
 
-		// 2. 根据协议类型，安全地生成最基础、100% 顺从 Clash 原生规范的配置（不带任何可能导致冲突的额外参数）
-		switch config.Type {
+		// 提取 ID 或 密码
+		var id string
+		if u.User != nil {
+			id = u.User.Username()
+		}
+		if id == "" {
+			continue
+		}
+
+		// 优雅生成安全别名
+		rawName := u.Fragment
+		if rawName == "" {
+			rawName = fmt.Sprintf("%s-%s", strings.ToUpper(proto), host)
+		} else {
+			rawName, _ = url.PathUnescape(rawName)
+		}
+		safeName := invalidYamlChars.ReplaceAllString(rawName, "")
+		safeName = strings.TrimSpace(safeName)
+		if safeName == "" {
+			safeName = fmt.Sprintf("NODE-%d", i)
+		}
+		safeName = fmt.Sprintf("%s-%d", safeName, i)
+
+		// 根据协议安全拼装
+		switch proto {
 		case "vmess":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %d\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, config.Server, config.Port, config.UUID))
-			if config.TLS {
-				sb.WriteString("    tls: true\n")
-			}
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "vless":
-			// 只写 VLESS 基础必填项，不写 XTLS/Reality 相关可能导致 short-id 报错的参数
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %d\n    uuid: %s\n    cipher: auto\n", safeName, config.Server, config.Port, config.UUID))
-			if config.TLS {
-				sb.WriteString("    tls: true\n")
-			}
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "trojan":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %d\n    password: %s\n    udp: true\n", safeName, config.Server, config.Port, config.Password))
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		}
 	}
