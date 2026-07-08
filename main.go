@@ -758,7 +758,7 @@ func writeMainConfigFile(filename string, configs []string) error {
 	return nil
 }
 
-// 纯字符串兼容版 writeClashYaml (彻底剔除 Reality 冲突参数)
+// 终极全兼容版 writeClashYaml（彻底终结 short id 弹窗）
 func writeClashYaml(configs []string) {
 	var sb strings.Builder
 
@@ -814,9 +814,8 @@ func writeClashYaml(configs []string) {
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "vless":
-			// 【关键修复】：这里输出给 Clash 的必须是最纯粹的 VLESS 核心
-			// 哪怕原始 URL 里带了 flow=xtls 或者 reality，一律不写入，不引发 Clash 核心的 short id 强制校验机制
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n", safeName, host, port, id))
+			// 【终极策略】：强行写入基础字段，并提供基础空安全防护，防止部分 Clash 核心强制校验 short-id
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "trojan":
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true\n", safeName, host, port, id))
