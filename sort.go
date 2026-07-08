@@ -423,7 +423,7 @@ func generateClashYaml(configs []string) {
 	}
 
 	var sb strings.Builder
-	sb.WriteString("port: 7890\nsocks-port: 7891\nmixed-port: 7892\nallow-lan: true\nmode: rule\nlog-level: info\nexternal-controller: 127.0.0.1:9090\n\nproxies:\n")
+	sb.WriteString("port: 7890\nsocks-port: 7891\nmixed-port: 7892\nallow-lan: true\nmode: rule\nlog-level: info\nexternal-controller: 127.0.0.1:9090\n\ntun:\n  enable: true\n  stack: mixed\n  auto-route: true\n  auto-detect-interface: true\n\ndns:\n  enable: true\n  ipv6: false\n  listen: 0.0.0.0:1053\n  enhanced-mode: fake-ip\n  fake-ip-range: 198.18.0.1/16\n  nameserver:\n    - 223.5.5.5\n    - 119.29.29.29\n  fallback:\n    - https://dns.cloudflare.com/dns-query\n    - https://dns.google/dns-query\n\nproxies:\n")
 	for _, pl := range proxyLines {
 		sb.WriteString(pl + "\n")
 	}
