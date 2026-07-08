@@ -304,12 +304,15 @@ func generateClashYaml(configs []string) {
 						pbk := strings.ReplaceAll(q.Get("pbk"), " ", "")
 						sid := strings.ReplaceAll(q.Get("sid"), " ", "")
 						
-						// 【强力修复】严格校验 short-id (sid) 的合法性，必须是合法的偶数位 16 进制字符串，否则彻底不输出此属性以防 Clash 报错崩溃
 						if fp != "" && pbk != "" {
 							line += fmt.Sprintf("\n    client-fingerprint: %s", fp)
 							line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s", pbk)
+							
+							// 【终极修复】如果原始 sid 合法，就输出它；如果不合法或为空，强制补全规范的空字段，防止 Clash 报错终止
 							if sid != "" && isValidHex(sid) && len(sid)%2 == 0 {
 								line += fmt.Sprintf("\n      short-id: %s", sid)
+							} else {
+								line += "\n      short-id: \"\""
 							}
 						}
 					}
@@ -457,7 +460,6 @@ func sanitizeName(name string) string {
 	return strings.TrimSpace(name)
 }
 
-// 检查字符串是否是合法的 Hex
 func isValidHex(s string) bool {
 	for _, c := range s {
 		if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
