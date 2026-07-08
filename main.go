@@ -791,10 +791,6 @@ func writeClashYaml(configs []string) {
 			id = u.User.Username()
 		}
 		
-		// 严查短 ID，防止导致手机端爆出 short id 崩溃错误
-		if len(id) < 8 {
-			continue
-		}
 
 		// 优雅生成安全别名
 		rawName := u.Fragment
