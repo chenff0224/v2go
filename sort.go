@@ -239,7 +239,8 @@ func generateClashYaml(configs []string) {
 				continue
 			}
 
-			line := fmt.Sprintf("  - name: %s\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: %s\n    udp: true", name, server, portStr, uuid, cipher)
+			// 统一为 name 加双引号保护
+			line := fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: \"%s\"\n    alterId: 0\n    cipher: %s\n    udp: true", name, server, portStr, uuid, cipher)
 			
 			if net, ok := data["net"].(string); ok && net == "ws" {
 				line += "\n    network: ws"
@@ -290,35 +291,30 @@ func generateClashYaml(configs []string) {
 				
 				q := u.Query()
 				isReality := q.Get("security") == "reality"
-				
-				// 【核心修正】如果是 Reality 节点，提前严格校验 short-id 的合法性。
-				// 如果 sid 为空或不符合偶数位 Hex 规范，直接跳过整个污染节点，绝不放进配置文件里。
-				var sid string
-				if isReality {
-					sid = strings.ReplaceAll(q.Get("sid"), " ", "")
-					if sid == "" || !isValidHex(sid) || len(sid)%2 != 0 {
-						continue 
-					}
-				}
+				sid := strings.ReplaceAll(q.Get("sid"), " ", "")
+				fp := strings.ReplaceAll(q.Get("fp"), " ", "")
+				pbk := strings.ReplaceAll(q.Get("pbk"), " ", "")
 
-				line := fmt.Sprintf("  - name: %s\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true", name, host, port, uuid)
+				// 统一为 name 和 uuid 加双引号保护
+				line := fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: \"%s\"\n    cipher: auto\n    udp: true", name, host, port, uuid)
 				
-				if q.Get("security") == "tls" || isReality {
+				// 严格校验 Reality
+				if isReality && pbk != "" && fp != "" && sid != "" && isValidHex(sid) && len(sid)%2 == 0 {
 					line += "\n    tls: true"
 					sni := strings.ReplaceAll(q.Get("sni"), " ", "")
 					if sni != "" {
 						line += fmt.Sprintf("\n    servername: %s", sni)
 					}
-					if isReality {
-						fp := strings.ReplaceAll(q.Get("fp"), " ", "")
-						pbk := strings.ReplaceAll(q.Get("pbk"), " ", "")
-						
-						if fp != "" && pbk != "" {
-							line += fmt.Sprintf("\n    client-fingerprint: %s", fp)
-							line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s\n      short-id: %s", pbk, sid)
-						}
+					line += fmt.Sprintf("\n    client-fingerprint: %s", fp)
+					line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s\n      short-id: %s", pbk, sid)
+				} else if q.Get("security") == "tls" {
+					line += "\n    tls: true"
+					sni := strings.ReplaceAll(q.Get("sni"), " ", "")
+					if sni != "" {
+						line += fmt.Sprintf("\n    servername: %s", sni)
 					}
 				}
+
 				if q.Get("type") == "ws" {
 					path := strings.ReplaceAll(q.Get("path"), " ", "")
 					if path != "" {
@@ -345,7 +341,8 @@ func generateClashYaml(configs []string) {
 				if host == "" || port == "" || password == "" || name == "" {
 					continue
 				}
-				line := fmt.Sprintf("  - name: %s\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true", name, host, port, password)
+				// 统一为 name 和 password 加双引号保护
+				line := fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: \"%s\"\n    udp: true", name, host, port, password)
 				q := u.Query()
 				sni := strings.ReplaceAll(q.Get("sni"), " ", "")
 				if sni != "" {
@@ -366,7 +363,8 @@ func generateClashYaml(configs []string) {
 				if host == "" || port == "" || auth == "" || name == "" {
 					continue
 				}
-				line := fmt.Sprintf("  - name: %s\n    type: hysteria2\n    server: %s\n    port: %s\n    password: %s", name, host, port, auth)
+				// 统一为 name 和 password 加双引号保护
+				line := fmt.Sprintf("  - name: \"%s\"\n    type: hysteria2\n    server: %s\n    port: %s\n    password: \"%s\"", name, host, port, auth)
 				q := u.Query()
 				sni := strings.ReplaceAll(q.Get("sni"), " ", "")
 				if sni != "" {
@@ -411,7 +409,8 @@ func generateClashYaml(configs []string) {
 					continue
 				}
 
-				line := fmt.Sprintf("  - name: %s\n    type: ss\n    server: %s\n    port: %s\n    cipher: %s\n    password: %s\n    udp: true", name, host, port, cipher, password)
+				// 统一为 name 和 password 加双引号保护
+				line := fmt.Sprintf("  - name: \"%s\"\n    type: ss\n    server: %s\n    port: %s\n    cipher: %s\n    password: \"%s\"\n    udp: true", name, host, port, cipher, password)
 				proxyLines = append(proxyLines, line)
 				proxyNames = append(proxyNames, name)
 			}
@@ -432,12 +431,12 @@ func generateClashYaml(configs []string) {
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 节点选择\n    type: select\n    proxies:\n      - ⚡ 自动测速\n")
 	for _, name := range proxyNames {
-		sb.WriteString(fmt.Sprintf("      - %s\n", name))
+		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
 	}
 
 	sb.WriteString("  - name: ⚡ 自动测速\n    type: url-test\n    url: http://www.gstatic.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range proxyNames {
-		sb.WriteString(fmt.Sprintf("      - %s\n", name))
+		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
 	}
 
 	sb.WriteString("\nrules:\n  - DOMAIN-SUFFIX,google.com,🚀 节点选择\n  - DOMAIN-KEYWORD,github,🚀 节点选择\n  - MATCH,🚀 节点选择\n")
@@ -454,7 +453,7 @@ func sanitizeName(name string) string {
 	name, _ = url.QueryUnescape(name)
 	name = strings.ReplaceAll(name, "\n", "")
 	name = strings.ReplaceAll(name, "\r", "")
-	name = strings.ReplaceAll(name, " ", "") 
+	name = strings.ReplaceAll(name, "\"", "") // 额外过滤掉内部可能存在的英文双引号，防止嵌套冲突
 	name = strings.ReplaceAll(name, ":", "-")
 	name = strings.ReplaceAll(name, "|", "-") 
 	name = strings.ReplaceAll(name, "[", "")
