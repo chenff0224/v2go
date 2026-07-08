@@ -758,7 +758,7 @@ func writeMainConfigFile(filename string, configs []string) error {
 	return nil
 }
 
-// 纯字符串兼容版 writeClashYaml
+// 纯字符串兼容版 writeClashYaml (彻底剔除 Reality 冲突参数)
 func writeClashYaml(configs []string) {
 	var sb strings.Builder
 
@@ -808,13 +808,14 @@ func writeClashYaml(configs []string) {
 		}
 		safeName = fmt.Sprintf("%s-%d", safeName, i)
 
-		// 2. 根据协议最简化拼装，绝不夹带任何容易引发 short id 报错的额外 Query 参数
+		// 2. 根据协议最简化拼装
 		switch proto {
 		case "vmess":
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "vless":
-			// 只拼装最基础的 VLESS，彻底抛弃可能引起 short id 报错的 Reality/flow 等尾巴
+			// 【关键修复】：这里输出给 Clash 的必须是最纯粹的 VLESS 核心
+			// 哪怕原始 URL 里带了 flow=xtls 或者 reality，一律不写入，不引发 Clash 核心的 short id 强制校验机制
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "trojan":
@@ -823,7 +824,7 @@ func writeClashYaml(configs []string) {
 		}
 	}
 
-	// 3. 强制加入对 YouTube 深度优化的测速自动挑选组（Generate 204）
+	// 3. 加入对 YouTube 深度优化的测速自动挑选组（Generate 204）
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 自动挑选(YouTube优化)\n    type: url-test\n    url: https://www.youtube.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range activeNames {
@@ -844,10 +845,10 @@ func writeClashYaml(configs []string) {
 	sb.WriteString("  - GEOIP,CN,DIRECT\n")
 	sb.WriteString("  - MATCH,🔰 节点选择\n")
 
-	// 写入本地，即使失败也不打断主流程
+	// 写入本地
 	_ = os.WriteFile("clash.yaml", []byte(sb.String()), 0644)
 }
-
+	
 func splitIntoFiles(base64Folder string, configs []string) error {
 	numFiles := (len(configs) + maxLinesPerFile - 1) / maxLinesPerFile
 
