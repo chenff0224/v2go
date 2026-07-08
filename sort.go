@@ -59,10 +59,7 @@ func sortConfigs() {
 	// Collect configs by protocol
 	protocolConfigs := make(map[string][]string)
 	// Track duplicates for each protocol
-	seenConfigs := make(map[string]map[string]bool)
-	for protocol := range files {
-		seenConfigs[protocol] = make(map[string]bool)
-	}
+	seenConfigs := make(map[string]bool)
 
 	vmessFile, err := os.OpenFile(files["vmess"], os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
@@ -98,11 +95,11 @@ func sortConfigs() {
 
 			if strings.HasPrefix(line, prefix) {
 				matched = true
-				if seenConfigs[protocol][line] {
+				if seenConfigs[line] {
 					duplicateCount[protocol]++
 					break
 				}
-				seenConfigs[protocol][line] = true
+				seenConfigs[line] = true
 				configCount[protocol]++
 
 				// 将去重后的唯一节点丢给 Clash 收集器
@@ -290,30 +287,35 @@ func generateClashYaml(configs []string) {
 				if host == "" || port == "" || uuid == "" || name == "" {
 					continue
 				}
-				line := fmt.Sprintf("  - name: %s\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true", name, host, port, uuid)
 				
 				q := u.Query()
-				if q.Get("security") == "tls" || q.Get("security") == "reality" {
+				isReality := q.Get("security") == "reality"
+				
+				// 【核心修正】如果是 Reality 节点，提前严格校验 short-id 的合法性。
+				// 如果 sid 为空或不符合偶数位 Hex 规范，直接跳过整个污染节点，绝不放进配置文件里。
+				var sid string
+				if isReality {
+					sid = strings.ReplaceAll(q.Get("sid"), " ", "")
+					if sid == "" || !isValidHex(sid) || len(sid)%2 != 0 {
+						continue 
+					}
+				}
+
+				line := fmt.Sprintf("  - name: %s\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true", name, host, port, uuid)
+				
+				if q.Get("security") == "tls" || isReality {
 					line += "\n    tls: true"
 					sni := strings.ReplaceAll(q.Get("sni"), " ", "")
 					if sni != "" {
 						line += fmt.Sprintf("\n    servername: %s", sni)
 					}
-					if q.Get("security") == "reality" {
+					if isReality {
 						fp := strings.ReplaceAll(q.Get("fp"), " ", "")
 						pbk := strings.ReplaceAll(q.Get("pbk"), " ", "")
-						sid := strings.ReplaceAll(q.Get("sid"), " ", "")
 						
 						if fp != "" && pbk != "" {
 							line += fmt.Sprintf("\n    client-fingerprint: %s", fp)
-							line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s", pbk)
-							
-							// 【终极修复】如果原始 sid 合法，就输出它；如果不合法或为空，强制补全规范的空字段，防止 Clash 报错终止
-							if sid != "" && isValidHex(sid) && len(sid)%2 == 0 {
-								line += fmt.Sprintf("\n      short-id: %s", sid)
-							} else {
-								line += "\n      short-id: \"\""
-							}
+							line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s\n      short-id: %s", pbk, sid)
 						}
 					}
 				}
