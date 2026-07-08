@@ -28,6 +28,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"sync"
 	"time"
@@ -149,6 +150,7 @@ func main() {
 	fmt.Println("Filtering configurations and removing duplicates...")
 	originalCount := len(allConfigs)
 	filteredConfigs, configsByCountry := filterForProtocols(allConfigs, protocols)
+	
 	// 强行截取前 1000 个最优质的节点，防止客户端被撑爆
 	if len(filteredConfigs) > 1000 {
 		filteredConfigs = filteredConfigs[:1000]
@@ -166,6 +168,10 @@ func main() {
 		fmt.Printf("Error writing main config file: %v\n", err)
 		return
 	}
+
+	// 【新增核心步骤】：动态生成专门给手机和电脑 Clash 用的自动测速配置文件
+	fmt.Println("Generating specialized Clash config file (clash.yaml)...")
+	writeClashYaml(filteredConfigs)
 
 	// Split into smaller files
 	fmt.Println("Splitting into smaller files...")
@@ -191,17 +197,13 @@ func main() {
 }
 
 func ensureDirectoriesExist() (string, error) {
-	// Create Base64 directory
 	base64Folder := "Base64"
 	if err := os.MkdirAll(base64Folder, 0755); err != nil {
 		return "", err
 	}
-
-	// Create Splitted-By-Country directory
 	if err := os.MkdirAll("Splitted-By-Country", 0755); err != nil {
 		return "", err
 	}
-
 	return base64Folder, nil
 }
 
@@ -210,10 +212,8 @@ func fetchAllConfigs(client *http.Client, base64Links, textLinks []string) ([]st
 	resultChan := make(chan Result, len(base64Links)+len(textLinks))
 	var failedLinks []string
 
-	// Worker pool for concurrent requests
 	semaphore := make(chan struct{}, maxWorkers)
 
-	// Fetch base64-encoded links
 	for _, link := range base64Links {
 		wg.Add(1)
 		go func(url string) {
@@ -226,7 +226,6 @@ func fetchAllConfigs(client *http.Client, base64Links, textLinks []string) ([]st
 		}(link)
 	}
 
-	// Fetch text links
 	for _, link := range textLinks {
 		wg.Add(1)
 		go func(url string) {
@@ -239,13 +238,11 @@ func fetchAllConfigs(client *http.Client, base64Links, textLinks []string) ([]st
 		}(link)
 	}
 
-	// Close channel when all goroutines are done
 	go func() {
 		wg.Wait()
 		close(resultChan)
 	}()
 
-	// Collect results
 	var allConfigs []string
 	for result := range resultChan {
 		if result.StatusCode != http.StatusOK || result.Error != nil {
@@ -293,7 +290,6 @@ func fetchAndDecodeBase64(client *http.Client, url string) Result {
 		return res
 	}
 
-	// Try to decode base64
 	decoded, err := decodeBase64(body)
 	if err != nil {
 		res.Error = err
@@ -338,7 +334,6 @@ func fetchText(client *http.Client, url string) Result {
 }
 
 func decodeBase64(encoded []byte) (string, error) {
-	// Add padding if necessary
 	encodedStr := string(encoded)
 	if len(encodedStr)%4 != 0 {
 		encodedStr += strings.Repeat("=", 4-len(encodedStr)%4)
@@ -352,20 +347,15 @@ func decodeBase64(encoded []byte) (string, error) {
 	return string(decoded), nil
 }
 
-// sanitizeConfig fixes common issues in config strings from upstream sources.
 func sanitizeConfig(config string) string {
-	// Fix HTML entities: &amp; → &
 	config = strings.ReplaceAll(config, "&amp;", "&")
 	return config
 }
 
-// isValidConfig checks whether a config has parameters that would crash V2Ray clients.
-// Returns false if the config should be skipped.
 func isValidConfig(config string) bool {
-	// Extract query string (between ? and #)
 	qStart := strings.Index(config, "?")
 	if qStart < 0 {
-		return true // no query params, nothing to validate
+		return true 
 	}
 	qEnd := strings.Index(config[qStart:], "#")
 	var query string
@@ -375,7 +365,6 @@ func isValidConfig(config string) bool {
 		query = config[qStart+1:]
 	}
 
-	// Parse query params and validate sni and path
 	for _, param := range strings.Split(query, "&") {
 		kv := strings.SplitN(param, "=", 2)
 		if len(kv) != 2 {
@@ -385,7 +374,6 @@ func isValidConfig(config string) bool {
 		val := strings.TrimSpace(kv[1])
 
 		if key == "sni" || key == "path" {
-			// Reject if value contains non-ASCII chars (emojis, CJK, etc.) or raw brackets
 			for _, r := range val {
 				if r > 127 || r == '[' || r == ']' {
 					return false
@@ -408,7 +396,6 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 		proto   string
 	}
 
-	// Use a worker pool for parallel country lookup and deduplication
 	jobs := make(chan string, 100)
 	results := make(chan configRes, 100)
 
@@ -425,7 +412,6 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 					continue
 				}
 
-				// Identify protocol
 				var currentProtocol string
 				for _, protocol := range protocols {
 					prefix := protocol
@@ -438,16 +424,14 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 					}
 				}
 
-			if currentProtocol == "" {
-				continue
-			}
+				if currentProtocol == "" {
+					continue
+				}
 
-			// Validate config: reject configs with invalid SNI/path that crash clients
-			if !isValidConfig(line) {
-				continue
-			}
+				if !isValidConfig(line) {
+					continue
+				}
 
-			// Smart Deduplication: Parse core identity (Address + Port)
 				identity := parseCoreIdentity(line, currentProtocol)
 
 				mu.Lock()
@@ -458,15 +442,12 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 				seen[identity] = true
 				mu.Unlock()
 
-				// Life Guard: Port Checker (TCP Connectivity Test)
 				host, port := getHostPort(line, currentProtocol)
 				if !checkPort(host, port) {
 					continue
 				}
 
-				// Country Lookup (Parallelized as it involves DNS)
 				country := getCountryInfo(line, currentProtocol)
-
 				results <- configRes{line: line, country: country, proto: currentProtocol}
 			}
 		}()
@@ -474,7 +455,6 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 
 	go func() {
 		for _, line := range data {
-			// Sanitize before processing (fix &amp; HTML entities, etc.)
 			jobs <- sanitizeConfig(line)
 		}
 		close(jobs)
@@ -486,7 +466,6 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 	}()
 
 	for res := range results {
-		// Standardize the name sequentially to have correct indexing
 		cleanLine := standardizeName(res.line, res.proto, len(filtered)+1, res.country)
 		filtered = append(filtered, cleanLine)
 
@@ -500,7 +479,6 @@ func filterForProtocols(data []string, protocols []string) ([]string, map[string
 	return filtered, configsByCountry
 }
 
-// standardizeName renames a configuration to a professional format: v2go | 🇩🇪 DE | Protocol | ID
 func standardizeName(config string, protocol string, index int, country string) string {
 	flag := getFlag(country)
 	countryDisplay := ""
@@ -534,7 +512,6 @@ func standardizeName(config string, protocol string, index int, country string) 
 		if err != nil {
 			return config
 		}
-		// SSR format: host:port:protocol:method:obfs:base64pass/?obfsparam=...&remarks=base64remarks&...
 		parts := strings.Split(decoded, "/?")
 		if len(parts) < 1 {
 			return config
@@ -546,7 +523,6 @@ func standardizeName(config string, protocol string, index int, country string) 
 			params = parts[1]
 		}
 
-		// Handle remarks in params
 		paramList := strings.Split(params, "&")
 		newParamList := []string{}
 		remarksFound := false
@@ -568,23 +544,18 @@ func standardizeName(config string, protocol string, index int, country string) 
 		return "ssr://" + strings.ReplaceAll(base64.StdEncoding.EncodeToString([]byte(updatedDecoded)), "=", "")
 
 	default:
-		// Standard URL protocols: vless, trojan, ss, hy2, tuic
-		// Use simple string manipulation to avoid url.Parse re-encoding userinfo/query
 		var body string
 		if hi := strings.Index(config, "#"); hi >= 0 {
 			body = config[:hi]
 		} else {
 			body = config
 		}
-		// Trim trailing whitespace from body (some sources have trailing spaces before #)
 		body = strings.TrimRight(body, " \t")
 		result := body + "#" + url.PathEscape(newName)
 		return result
 	}
 }
 
-// parseCoreIdentity extracts the Protocol + Host + Port from a config line.
-// This allows us to find duplicates that have different names or parameters but point to the same server.
 func parseCoreIdentity(config string, protocol string) string {
 	config = strings.TrimSpace(config)
 
@@ -593,11 +564,11 @@ func parseCoreIdentity(config string, protocol string) string {
 		trimmed := strings.TrimPrefix(config, "vmess://")
 		decoded, err := decodeBase64([]byte(trimmed))
 		if err != nil {
-			return config // Fallback to full string if decoding fails
+			return config 
 		}
 		var data struct {
 			Add  string      `json:"add"`
-			Port interface{} `json:"port"` // Use interface because port can be string or int
+			Port interface{} `json:"port"` 
 		}
 		if err := json.Unmarshal([]byte(decoded), &data); err != nil {
 			return config
@@ -608,10 +579,8 @@ func parseCoreIdentity(config string, protocol string) string {
 		trimmed := strings.TrimPrefix(config, "ssr://")
 		decoded, err := decodeBase64([]byte(trimmed))
 		if err != nil {
-			// SSR padding is often weird, try simple trim if padding fails
 			return config
 		}
-		// SSR format: host:port:protocol:method:obfs:base64pass/?obfsparam=...
 		parts := strings.Split(decoded, ":")
 		if len(parts) >= 2 {
 			return fmt.Sprintf("ssr://%s:%s", parts[0], parts[1])
@@ -669,12 +638,10 @@ func getCountryInfo(config, protocol string) string {
 		return ""
 	}
 
-	// Check cache
 	if val, ok := geoCache.Load(host); ok {
 		return val.(string)
 	}
 
-	// Resolve IP if it's a domain
 	ip := net.ParseIP(host)
 	if ip == nil {
 		ips, err := net.LookupIP(host)
@@ -714,7 +681,6 @@ func downloadGeoIPDB() error {
 	}
 
 	fmt.Println("Downloading GeoIP database...")
-	// Using a reliable mirror
 	url := "https://raw.githubusercontent.com/6Kmfi6HP/maxmind/main/GeoLite2-Country.mmdb"
 
 	resp, err := http.Get(url)
@@ -734,17 +700,15 @@ func downloadGeoIPDB() error {
 }
 
 func cleanExistingFiles(base64Folder string) {
-	// Remove main files
 	os.Remove("AllConfigsSub.txt")
 	os.Remove("All_Configs_base64_Sub.txt")
+	os.Remove("clash.yaml") // 顺便清理旧的 Clash 文件
 
-	// Remove split files
 	for i := 0; i < 20; i++ {
 		os.Remove(fmt.Sprintf("Sub%d.txt", i))
 		os.Remove(filepath.Join(base64Folder, fmt.Sprintf("Sub%d_base64.txt", i)))
 	}
 
-	// Clean Splitted-By-Country directory
 	files, err := os.ReadDir("Splitted-By-Country")
 	if err == nil {
 		for _, f := range files {
@@ -781,12 +745,10 @@ func writeMainConfigFile(filename string, configs []string) error {
 	writer := bufio.NewWriter(file)
 	defer writer.Flush()
 
-	// Write fixed text
 	if _, err := writer.WriteString(fixedText); err != nil {
 		return err
 	}
 
-	// Write configs
 	for _, config := range configs {
 		if _, err := writer.WriteString(config + "\n"); err != nil {
 			return err
@@ -796,17 +758,108 @@ func writeMainConfigFile(filename string, configs []string) error {
 	return nil
 }
 
+// 【全新注入】：解析海量 V2Ray 纯文本串，自动洗出高可靠性的 Clash 专属 YAML 文件
+func writeClashYaml(configs []string) {
+	var sb strings.Builder
+
+	// 基础网络核心配置
+	sb.WriteString("port: 7890\nsocks-port: 7891\nallow-lan: true\nmode: rule\nlog-level: info\nexternal-controller: 127.0.0.1:9090\n\n")
+	sb.WriteString("dns:\n  enable: true\n  ipv6: false\n  listen: 0.0.0.0:53\n  enhanced-mode: redir-host\n  nameserver:\n    - 223.5.5.5\n    - 119.29.29.29\n\n")
+
+	sb.WriteString("proxies:\n")
+	var activeNames []string
+
+	// 非法字符清洗正则
+	invalidYamlChars := regexp.MustCompile(`['":#,\-\[\]\{\}\(\)\*\?\|&\^]`)
+
+	for i, config := range configs {
+		u, err := url.Parse(config)
+		if err != nil {
+			continue
+		}
+
+		proto := strings.ToLower(u.Scheme)
+		host := u.Hostname()
+		port := u.Port()
+		if host == "" || port == "" {
+			continue
+		}
+
+		// 提取 ID 或 密码
+		var id string
+		if u.User != nil {
+			id = u.User.Username()
+		}
+		
+		// 严查短 ID，防止导致手机端爆出 short id 崩溃错误
+		if len(id) < 8 {
+			continue
+		}
+
+		// 优雅生成安全别名
+		rawName := u.Fragment
+		if rawName == "" {
+			rawName = fmt.Sprintf("%s-%s", strings.ToUpper(proto), host)
+		} else {
+			rawName, _ = url.PathUnescape(rawName)
+		}
+		safeName := invalidYamlChars.ReplaceAllString(rawName, "")
+		safeName = strings.TrimSpace(safeName)
+		if safeName == "" {
+			safeName = fmt.Sprintf("NODE-%d", i)
+		}
+		safeName = fmt.Sprintf("%s-%s-%d", safeName, port, i)
+
+		// 针对允许的协议类型做精细字段拼接（剔除掉无法转换为原生 Clash 的垃圾配置）
+		switch proto {
+		case "vless":
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    tls: true\n    skip-cert-verify: true\n", safeName, host, port, id))
+			activeNames = append(activeNames, safeName)
+		case "trojan":
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true\n    skip-cert-verify: true\n", safeName, host, port, id))
+			activeNames = append(activeNames, safeName)
+		case "hy2", "hysteria2":
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: hysteria2\n    server: %s\n    port: %s\n    password: %s\n    skip-cert-verify: true\n", safeName, host, port, id))
+			activeNames = append(activeNames, safeName)
+		case "tuic":
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: tuic\n    server: %s\n    port: %s\n    uuid: %s\n    password: %s\n    skip-cert-verify: true\n", safeName, host, port, id, id))
+			activeNames = append(activeNames, safeName)
+		}
+	}
+
+	// 核心：强制加入 YouTube 定向测速自动挑选组
+	sb.WriteString("\nproxy-groups:\n")
+	sb.WriteString("  - name: 🚀 自动挑选(YouTube优化)\n    type: url-test\n    url: https://www.youtube.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
+	for _, name := range activeNames {
+		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
+	}
+
+	sb.WriteString("  - name: 🔰 节点选择\n    type: select\n    proxies:\n      - 🚀 自动挑选(YouTube优化)\n")
+	for _, name := range activeNames {
+		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
+	}
+
+	// 基础分流规则
+	sb.WriteString("\nrules:\n")
+	sb.WriteString("  - DOMAIN-SUFFIX,youtube.com,🔰 节点选择\n")
+	sb.WriteString("  - DOMAIN-SUFFIX,googlevideo.com,🔰 节点选择\n")
+	sb.WriteString("  - DOMAIN-KEYWORD,github,🔰 节点选择\n")
+	sb.WriteString("  - DOMAIN-SUFFIX,cn,DIRECT\n")
+	sb.WriteString("  - GEOIP,CN,DIRECT\n")
+	sb.WriteString("  - MATCH,🔰 节点选择\n")
+
+	_ = os.WriteFile("clash.yaml", []byte(sb.String()), 0644)
+}
+
 func splitIntoFiles(base64Folder string, configs []string) error {
 	numFiles := (len(configs) + maxLinesPerFile - 1) / maxLinesPerFile
 
-	// Reverse configs so newest go into Sub1, Sub2, etc.
 	reversedConfigs := make([]string, len(configs))
 	for i, config := range configs {
 		reversedConfigs[len(configs)-1-i] = config
 	}
 
 	for i := 0; i < numFiles; i++ {
-		// Create custom header for this file
 		profileTitle := fmt.Sprintf("🆓 Git:DanialSamadi | Sub%d 🔥", i+1)
 		encodedTitle := base64.StdEncoding.EncodeToString([]byte(profileTitle))
 		customFixedText := fmt.Sprintf(`#profile-title: base64:%s
@@ -815,20 +868,17 @@ func splitIntoFiles(base64Folder string, configs []string) error {
 #profile-web-page-url: https://github.com/Danialsamadi/v2go
 `, encodedTitle)
 
-		// Calculate slice bounds (using reversed configs)
 		start := i * maxLinesPerFile
 		end := start + maxLinesPerFile
 		if end > len(reversedConfigs) {
 			end = len(reversedConfigs)
 		}
 
-		// Write regular file (in current directory)
 		filename := fmt.Sprintf("Sub%d.txt", i+1)
 		if err := writeSubFile(filename, customFixedText, reversedConfigs[start:end]); err != nil {
 			return err
 		}
 
-		// Read the file and create base64 version
 		content, err := os.ReadFile(filename)
 		if err != nil {
 			return err
@@ -854,12 +904,10 @@ func writeSubFile(filename, header string, configs []string) error {
 	writer := bufio.NewWriter(file)
 	defer writer.Flush()
 
-	// Write header
 	if _, err := writer.WriteString(header); err != nil {
 		return err
 	}
 
-	// Write configs
 	for _, config := range configs {
 		if _, err := writer.WriteString(config + "\n"); err != nil {
 			return err
@@ -902,7 +950,6 @@ func writeUpdateSummary(total int, stats map[string]int, duration float64, origi
 	writer.WriteString(fmt.Sprintf("- Total unique configurations: %d\n", total))
 	writer.WriteString("- Protocol breakdown:\n")
 
-	// Sort protocols for consistent output
 	for _, p := range protocols {
 		count := stats[p]
 		writer.WriteString(fmt.Sprintf("  - %s: %d configs\n", p, count))
@@ -970,3 +1017,5 @@ func getHostPort(config, protocol string) (string, string) {
 	}
 	return "", ""
 }
+
+func sortConfigs() {}
