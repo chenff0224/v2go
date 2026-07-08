@@ -77,7 +77,7 @@ func sortConfigs() {
 	configCount := make(map[string]int)
 	duplicateCount := make(map[string]int)
 
-	// 【安全追加】定义切片，用来单独收集去重后的唯一节点供 Clash 转换，绝不干扰原生逻辑
+	// 收集去重后的唯一节点供 Clash 转换
 	var allUniqueConfigs []string
 
 	fmt.Println("Processing configurations...")
@@ -105,7 +105,7 @@ func sortConfigs() {
 				seenConfigs[protocol][line] = true
 				configCount[protocol]++
 
-				// 【安全追加】将去重后的唯一节点丢给 Clash 收集器
+				// 将去重后的唯一节点丢给 Clash 收集器
 				allUniqueConfigs = append(allUniqueConfigs, line)
 
 				if protocol == "vmess" {
@@ -133,7 +133,7 @@ func sortConfigs() {
 	// Flush vmess writer
 	vmessWriter.Flush()
 
-	// 原有逻辑：将其他协议以 Base64 编码形式写入文件（完全原封不动保留）
+	// 原有逻辑
 	for protocol, configs := range protocolConfigs {
 		if len(configs) == 0 {
 			continue
@@ -152,7 +152,7 @@ func sortConfigs() {
 		}
 	}
 
-	// 【核心追加】在原有文件处理完毕后，独立触发安全的 Clash YAML 生成
+	// 生成 Clash YAML 
 	fmt.Println("Generating Clash YAML file...")
 	generateClashYaml(allUniqueConfigs)
 
@@ -193,14 +193,18 @@ func sortConfigs() {
 	}
 }
 
-// 解析并构建具有防错清洗的 Clash YAML 配置文件
 func generateClashYaml(configs []string) {
 	var proxyLines []string
 	var proxyNames []string
 
 	vmessIdx, vlessIdx, trojanIdx, ssIdx, hy2Idx := 1, 1, 1, 1, 1
+	maxNodes := 250 
 
 	for _, link := range configs {
+		if len(proxyLines) >= maxNodes {
+			break
+		}
+
 		if strings.HasPrefix(link, "vmess://") {
 			b64Data := strings.TrimPrefix(link, "vmess://")
 			if rem := len(b64Data) % 4; rem > 0 {
@@ -244,10 +248,14 @@ func generateClashYaml(configs []string) {
 				line += "\n    network: ws"
 				if path, ok := data["path"].(string); ok && path != "" {
 					cleanPath := strings.ReplaceAll(path, " ", "")
-					line += fmt.Sprintf("\n    ws-opts:\n      path: %s", strconv.Quote(cleanPath))
-					if host, ok := data["host"].(string); ok && host != "" {
-						cleanHost := strings.ReplaceAll(host, " ", "")
-						line += fmt.Sprintf("\n      headers:\n        Host: %s", cleanHost)
+					if cleanPath != "" {
+						line += fmt.Sprintf("\n    ws-opts:\n      path: %s", strconv.Quote(cleanPath))
+						if host, ok := data["host"].(string); ok && host != "" {
+							cleanHost := strings.ReplaceAll(host, " ", "")
+							if cleanHost != "" {
+								line += fmt.Sprintf("\n      headers:\n        Host: %s", cleanHost)
+							}
+						}
 					}
 				}
 			}
@@ -267,7 +275,7 @@ func generateClashYaml(configs []string) {
 			var name string
 			remark := u.Fragment
 			if remark != "" {
-				name = sanitizeName(remark)
+				name = sanitizeName(remark) // 【真正挂载清洗函数，确保彻底干掉空格和特殊字符】
 			}
 
 			if strings.HasPrefix(link, "vless://") {
@@ -287,23 +295,31 @@ func generateClashYaml(configs []string) {
 				q := u.Query()
 				if q.Get("security") == "tls" || q.Get("security") == "reality" {
 					line += "\n    tls: true"
-					if q.Get("sni") != "" {
-						line += fmt.Sprintf("\n    servername: %s", strings.ReplaceAll(q.Get("sni"), " ", ""))
+					sni := strings.ReplaceAll(q.Get("sni"), " ", "")
+					if sni != "" {
+						line += fmt.Sprintf("\n    servername: %s", sni)
 					}
 					if q.Get("security") == "reality" {
-						line += fmt.Sprintf("\n    client-fingerprint: %s", strings.ReplaceAll(q.Get("fp"), " ", ""))
-						line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s", strings.ReplaceAll(q.Get("pbk"), " ", ""))
-						if q.Get("sid") != "" {
-							line += fmt.Sprintf("\n      short-id: %s", strings.ReplaceAll(q.Get("sid"), " ", ""))
+						fp := strings.ReplaceAll(q.Get("fp"), " ", "")
+						pbk := strings.ReplaceAll(q.Get("pbk"), " ", "")
+						sid := strings.ReplaceAll(q.Get("sid"), " ", "")
+						if fp != "" && pbk != "" {
+							line += fmt.Sprintf("\n    client-fingerprint: %s", fp)
+							line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s", pbk)
+							if sid != "" {
+								line += fmt.Sprintf("\n      short-id: %s", sid)
+							}
 						}
 					}
 				}
 				if q.Get("type") == "ws" {
-					line += "\n    network: ws"
-					if q.Get("path") != "" {
-						line += fmt.Sprintf("\n    ws-opts:\n      path: %s", strconv.Quote(strings.ReplaceAll(q.Get("path"), " ", "")))
-						if q.Get("host") != "" {
-							line += fmt.Sprintf("\n      headers:\n        Host: %s", strings.ReplaceAll(q.Get("host"), " ", ""))
+					path := strings.ReplaceAll(q.Get("path"), " ", "")
+					if path != "" {
+						line += "\n    network: ws"
+						line += fmt.Sprintf("\n    ws-opts:\n      path: %s", strconv.Quote(path))
+						hostParam := strings.ReplaceAll(q.Get("host"), " ", "")
+						if hostParam != "" {
+							line += fmt.Sprintf("\n      headers:\n        Host: %s", hostParam)
 						}
 					}
 				}
@@ -324,8 +340,9 @@ func generateClashYaml(configs []string) {
 				}
 				line := fmt.Sprintf("  - name: %s\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true", name, host, port, password)
 				q := u.Query()
-				if q.Get("sni") != "" {
-					line += fmt.Sprintf("\n    servername: %s", strings.ReplaceAll(q.Get("sni"), " ", ""))
+				sni := strings.ReplaceAll(q.Get("sni"), " ", "")
+				if sni != "" {
+					line += fmt.Sprintf("\n    servername: %s", sni)
 				}
 				proxyLines = append(proxyLines, line)
 				proxyNames = append(proxyNames, name)
@@ -344,8 +361,9 @@ func generateClashYaml(configs []string) {
 				}
 				line := fmt.Sprintf("  - name: %s\n    type: hysteria2\n    server: %s\n    port: %s\n    password: %s", name, host, port, auth)
 				q := u.Query()
-				if q.Get("sni") != "" {
-					line += fmt.Sprintf("\n    sni: %s", strings.ReplaceAll(q.Get("sni"), " ", ""))
+				sni := strings.ReplaceAll(q.Get("sni"), " ", "")
+				if sni != "" {
+					line += fmt.Sprintf("\n    sni: %s", sni)
 				}
 				proxyLines = append(proxyLines, line)
 				proxyNames = append(proxyNames, name)
@@ -425,13 +443,13 @@ func generateClashYaml(configs []string) {
 	}
 }
 
-// 终极清洗：移除节点名称中的所有空格、换行符、非法符号，确保 YAML 解析 100% 成功
 func sanitizeName(name string) string {
 	name, _ = url.QueryUnescape(name)
 	name = strings.ReplaceAll(name, "\n", "")
 	name = strings.ReplaceAll(name, "\r", "")
-	name = strings.ReplaceAll(name, " ", "") // 彻底拿掉节点名字中的空格
+	name = strings.ReplaceAll(name, " ", "") 
 	name = strings.ReplaceAll(name, ":", "-")
+	name = strings.ReplaceAll(name, "|", "-") // 【把带 | 的全部变成 - 彻底干掉报错根源】
 	name = strings.ReplaceAll(name, "[", "")
 	name = strings.ReplaceAll(name, "]", "")
 	return strings.TrimSpace(name)
