@@ -762,14 +762,14 @@ func writeMainConfigFile(filename string, configs []string) error {
 func writeClashYaml(configs []string) {
 	var sb strings.Builder
 
-	// 1. 基础网络核心配置
+	// 1. 写入基础网络和 DNS 配置
 	sb.WriteString("port: 7890\nsocks-port: 7891\nallow-lan: true\nmode: rule\nlog-level: info\nexternal-controller: 127.0.0.1:9090\n\n")
 	sb.WriteString("dns:\n  enable: true\n  ipv6: false\n  listen: 0.0.0.0:53\n  enhanced-mode: redir-host\n  nameserver:\n    - 223.5.5.5\n    - 119.29.29.29\n\n")
 
 	sb.WriteString("proxies:\n")
 	var activeNames []string
 
-	// 非法字符清洗正则
+	// 用正则安全清洗节点别名中的非法 YAML 符号
 	invalidYamlChars := regexp.MustCompile(`['":#,\-\[\]\{\}\(\)\*\?\|&\^]`)
 
 	for i, configStr := range configs {
@@ -785,7 +785,7 @@ func writeClashYaml(configs []string) {
 			continue
 		}
 
-		// 提取 ID 或 密码
+		// 安全提取 ID/密码
 		var id string
 		if u.User != nil {
 			id = u.User.Username()
@@ -794,7 +794,7 @@ func writeClashYaml(configs []string) {
 			continue
 		}
 
-		// 优雅生成安全别名
+		// 提取并清洗节点别名
 		rawName := u.Fragment
 		if rawName == "" {
 			rawName = fmt.Sprintf("%s-%s", strings.ToUpper(proto), host)
@@ -808,12 +808,13 @@ func writeClashYaml(configs []string) {
 		}
 		safeName = fmt.Sprintf("%s-%d", safeName, i)
 
-		// 根据协议安全拼装
+		// 2. 根据协议最简化拼装，绝不夹带任何容易引发 short id 报错的额外 Query 参数
 		switch proto {
 		case "vmess":
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "vless":
+			// 只拼装最基础的 VLESS，彻底抛弃可能引起 short id 报错的 Reality/flow 等尾巴
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "trojan":
@@ -822,7 +823,7 @@ func writeClashYaml(configs []string) {
 		}
 	}
 
-	// 3. 强制加入专门对 YouTube 优化的测速自动挑选组
+	// 3. 强制加入对 YouTube 深度优化的测速自动挑选组（Generate 204）
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 自动挑选(YouTube优化)\n    type: url-test\n    url: https://www.youtube.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range activeNames {
@@ -843,6 +844,7 @@ func writeClashYaml(configs []string) {
 	sb.WriteString("  - GEOIP,CN,DIRECT\n")
 	sb.WriteString("  - MATCH,🔰 节点选择\n")
 
+	// 写入本地，即使失败也不打断主流程
 	_ = os.WriteFile("clash.yaml", []byte(sb.String()), 0644)
 }
 
