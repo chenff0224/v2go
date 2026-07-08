@@ -758,11 +758,10 @@ func writeMainConfigFile(filename string, configs []string) error {
 	return nil
 }
 
-// 【全新注入】：解析海量 V2Ray 纯文本串，自动洗出高可靠性的 Clash 专属 YAML 文件
-func writeClashYaml(configs []string) {
+func writeClashYaml(configs []Config) {
 	var sb strings.Builder
 
-	// 基础网络核心配置
+	// 1. 基础网络核心配置
 	sb.WriteString("port: 7890\nsocks-port: 7891\nallow-lan: true\nmode: rule\nlog-level: info\nexternal-controller: 127.0.0.1:9090\n\n")
 	sb.WriteString("dns:\n  enable: true\n  ipv6: false\n  listen: 0.0.0.0:53\n  enhanced-mode: redir-host\n  nameserver:\n    - 223.5.5.5\n    - 119.29.29.29\n\n")
 
@@ -773,57 +772,41 @@ func writeClashYaml(configs []string) {
 	invalidYamlChars := regexp.MustCompile(`['":#,\-\[\]\{\}\(\)\*\?\|&\^]`)
 
 	for i, config := range configs {
-		u, err := url.Parse(config)
-		if err != nil {
+		// 安全过滤：如果没有别名，直接跳过
+		if config.Remarks == "" {
 			continue
 		}
 
-		proto := strings.ToLower(u.Scheme)
-		host := u.Hostname()
-		port := u.Port()
-		if host == "" || port == "" {
-			continue
+		// 优雅生成安全别名，防止 YAML 格式因为特殊符号崩溃
+		remarks := invalidYamlChars.ReplaceAllString(config.Remarks, "")
+		remarks = strings.TrimSpace(remarks)
+		if remarks == "" {
+			remarks = fmt.Sprintf("NODE-%d", i)
 		}
+		safeName := fmt.Sprintf("%s-%d", remarks, i)
 
-		// 提取 ID 或 密码
-		var id string
-		if u.User != nil {
-			id = u.User.Username()
-		}
-		
-
-		// 优雅生成安全别名
-		rawName := u.Fragment
-		if rawName == "" {
-			rawName = fmt.Sprintf("%s-%s", strings.ToUpper(proto), host)
-		} else {
-			rawName, _ = url.PathUnescape(rawName)
-		}
-		safeName := invalidYamlChars.ReplaceAllString(rawName, "")
-		safeName = strings.TrimSpace(safeName)
-		if safeName == "" {
-			safeName = fmt.Sprintf("NODE-%d", i)
-		}
-		safeName = fmt.Sprintf("%s-%s-%d", safeName, port, i)
-
-		// 针对允许的协议类型做精细字段拼接（剔除掉无法转换为原生 Clash 的垃圾配置）
-		switch proto {
+		// 2. 根据协议类型，安全地生成最基础、100% 顺从 Clash 原生规范的配置（不带任何可能导致冲突的额外参数）
+		switch config.Type {
+		case "vmess":
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %d\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, config.Server, config.Port, config.UUID))
+			if config.TLS {
+				sb.WriteString("    tls: true\n")
+			}
+			activeNames = append(activeNames, safeName)
 		case "vless":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    tls: true\n    skip-cert-verify: true\n", safeName, host, port, id))
+			// 只写 VLESS 基础必填项，不写 XTLS/Reality 相关可能导致 short-id 报错的参数
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %d\n    uuid: %s\n    cipher: auto\n", safeName, config.Server, config.Port, config.UUID))
+			if config.TLS {
+				sb.WriteString("    tls: true\n")
+			}
 			activeNames = append(activeNames, safeName)
 		case "trojan":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true\n    skip-cert-verify: true\n", safeName, host, port, id))
-			activeNames = append(activeNames, safeName)
-		case "hy2", "hysteria2":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: hysteria2\n    server: %s\n    port: %s\n    password: %s\n    skip-cert-verify: true\n", safeName, host, port, id))
-			activeNames = append(activeNames, safeName)
-		case "tuic":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: tuic\n    server: %s\n    port: %s\n    uuid: %s\n    password: %s\n    skip-cert-verify: true\n", safeName, host, port, id, id))
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %d\n    password: %s\n    udp: true\n", safeName, config.Server, config.Port, config.Password))
 			activeNames = append(activeNames, safeName)
 		}
 	}
 
-	// 核心：强制加入 YouTube 定向测速自动挑选组
+	// 3. 强制加入专门对 YouTube 优化的测速自动挑选组
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 自动挑选(YouTube优化)\n    type: url-test\n    url: https://www.youtube.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range activeNames {
@@ -835,7 +818,7 @@ func writeClashYaml(configs []string) {
 		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
 	}
 
-	// 基础分流规则
+	// 4. 基础分流规则
 	sb.WriteString("\nrules:\n")
 	sb.WriteString("  - DOMAIN-SUFFIX,youtube.com,🔰 节点选择\n")
 	sb.WriteString("  - DOMAIN-SUFFIX,googlevideo.com,🔰 节点选择\n")
