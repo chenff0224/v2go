@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
@@ -76,7 +77,7 @@ func sortConfigs() {
 	configCount := make(map[string]int)
 	duplicateCount := make(map[string]int)
 
-	// 【新增】定义一个切片，用来单独收集去重后的所有唯一节点，供 Clash 转换使用
+	// 收集去重后的所有唯一节点，供 Clash 转换使用
 	var allUniqueConfigs []string
 
 	fmt.Println("Processing configurations...")
@@ -104,7 +105,7 @@ func sortConfigs() {
 				seenConfigs[protocol][line] = true
 				configCount[protocol]++
 
-				// 【新增】将去重后的唯一节点塞入 Clash 收集器，完全不干扰后面的原生写入逻辑
+				// 将去重后的唯一节点塞入 Clash 收集器，完全不干扰后面的原生写入逻辑
 				allUniqueConfigs = append(allUniqueConfigs, line)
 
 				if protocol == "vmess" {
@@ -132,7 +133,7 @@ func sortConfigs() {
 	// Flush vmess writer
 	vmessWriter.Flush()
 
-	// 原有逻辑：将其他协议以 Base64 编码形式写入文件（完全保留，确保原有订阅不崩溃）
+	// 原有逻辑：将其他协议以 Base64 编码形式写入文件（完全保留）
 	for protocol, configs := range protocolConfigs {
 		if len(configs) == 0 {
 			continue
@@ -151,7 +152,7 @@ func sortConfigs() {
 		}
 	}
 
-	// 【核心追加】在原有文件全部安全写完后，独立触发 Clash YAML 的生成
+	// 【核心追加】安全触发升级后的 Clash YAML 生成
 	fmt.Println("Generating Clash YAML file...")
 	generateClashYaml(allUniqueConfigs)
 
@@ -192,7 +193,7 @@ func sortConfigs() {
 	}
 }
 
-// 【新增辅助函数】解析并构建 Clash 专用的 YAML 配置文件
+// 解析并构建 Clash 专用的 YAML 配置文件（已进行安全格式升级）
 func generateClashYaml(configs []string) {
 	var proxyLines []string
 	var proxyNames []string
@@ -215,7 +216,7 @@ func generateClashYaml(configs []string) {
 			}
 
 			name := fmt.Sprintf("Vmess_%d", vmessIdx)
-			if ps, ok := data["ps"].(string); ok && ps != "" {
+			if ps, ok := data["ps"].(string); ok && strings.TrimSpace(ps) != "" {
 				name = sanitizeName(ps)
 			} else {
 				vmessIdx++
@@ -229,16 +230,19 @@ func generateClashYaml(configs []string) {
 				cipher = c
 			}
 
-			if server == "" || portStr == "" || uuid == "" {
+			server = strings.TrimSpace(server)
+			portStr = strings.TrimSpace(portStr)
+			uuid = strings.TrimSpace(uuid)
+			if server == "" || portStr == "" || uuid == "" || strings.Contains(server, " ") {
 				continue
 			}
 
-			line := fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: %s\n    udp: true", name, server, portStr, uuid, cipher)
+			line := fmt.Sprintf("  - name: %s\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: %s\n    udp: true", strconv.Quote(name), server, portStr, uuid, cipher)
 			
 			if net, ok := data["net"].(string); ok && net == "ws" {
 				line += "\n    network: ws"
 				if path, ok := data["path"].(string); ok && path != "" {
-					line += fmt.Sprintf("\n    ws-opts:\n      path: %s", path)
+					line += fmt.Sprintf("\n    ws-opts:\n      path: %s", strconv.Quote(path))
 					if host, ok := data["host"].(string); ok && host != "" {
 						line += fmt.Sprintf("\n      headers:\n        Host: %s", host)
 					}
@@ -270,10 +274,12 @@ func generateClashYaml(configs []string) {
 				}
 				uuid := u.User.Username()
 				host, port, _ := strings.Cut(u.Host, ":")
-				if host == "" || port == "" {
+				host = strings.TrimSpace(host)
+				port = strings.TrimSpace(port)
+				if host == "" || port == "" || strings.Contains(host, " ") {
 					continue
 				}
-				line := fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true", name, host, port, uuid)
+				line := fmt.Sprintf("  - name: %s\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true", strconv.Quote(name), host, port, uuid)
 				
 				q := u.Query()
 				if q.Get("security") == "tls" || q.Get("security") == "reality" {
@@ -292,7 +298,7 @@ func generateClashYaml(configs []string) {
 				if q.Get("type") == "ws" {
 					line += "\n    network: ws"
 					if q.Get("path") != "" {
-						line += fmt.Sprintf("\n    ws-opts:\n      path: %s", q.Get("path"))
+						line += fmt.Sprintf("\n    ws-opts:\n      path: %s", strconv.Quote(q.Get("path")))
 						if q.Get("host") != "" {
 							line += fmt.Sprintf("\n      headers:\n        Host: %s", q.Get("host"))
 						}
@@ -308,10 +314,12 @@ func generateClashYaml(configs []string) {
 				}
 				password := u.User.Username()
 				host, port, _ := strings.Cut(u.Host, ":")
-				if host == "" || port == "" {
+				host = strings.TrimSpace(host)
+				port = strings.TrimSpace(port)
+				if host == "" || port == "" || strings.Contains(host, " ") {
 					continue
 				}
-				line := fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true", name, host, port, password)
+				line := fmt.Sprintf("  - name: %s\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true", strconv.Quote(name), host, port, password)
 				q := u.Query()
 				if q.Get("sni") != "" {
 					line += fmt.Sprintf("\n    servername: %s", q.Get("sni"))
@@ -326,10 +334,12 @@ func generateClashYaml(configs []string) {
 				}
 				auth := u.User.Username()
 				host, port, _ := strings.Cut(u.Host, ":")
-				if host == "" || port == "" {
+				host = strings.TrimSpace(host)
+				port = strings.TrimSpace(port)
+				if host == "" || port == "" || strings.Contains(host, " ") {
 					continue
 				}
-				line := fmt.Sprintf("  - name: \"%s\"\n    type: hysteria2\n    server: %s\n    port: %s\n    password: %s", name, host, port, auth)
+				line := fmt.Sprintf("  - name: %s\n    type: hysteria2\n    server: %s\n    port: %s\n    password: %s", strconv.Quote(name), host, port, auth)
 				q := u.Query()
 				if q.Get("sni") != "" {
 					line += fmt.Sprintf("\n    sni: %s", q.Get("sni"))
@@ -364,11 +374,13 @@ func generateClashYaml(configs []string) {
 					host, port, _ = strings.Cut(u.Host, ":")
 				}
 
-				if cipher == "" || password == "" || host == "" || port == "" {
+				host = strings.TrimSpace(host)
+				port = strings.TrimSpace(port)
+				if cipher == "" || password == "" || host == "" || port == "" || strings.Contains(host, " ") {
 					continue
 				}
 
-				line := fmt.Sprintf("  - name: \"%s\"\n    type: ss\n    server: %s\n    port: %s\n    cipher: %s\n    password: %s\n    udp: true", name, host, port, cipher, password)
+				line := fmt.Sprintf("  - name: %s\n    type: ss\n    server: %s\n    port: %s\n    cipher: %s\n    password: %s\n    udp: true", strconv.Quote(name), host, port, cipher, password)
 				proxyLines = append(proxyLines, line)
 				proxyNames = append(proxyNames, name)
 			}
@@ -389,12 +401,12 @@ func generateClashYaml(configs []string) {
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 节点选择\n    type: select\n    proxies:\n      - ⚡ 自动测速\n")
 	for _, name := range proxyNames {
-		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
+		sb.WriteString(fmt.Sprintf("      - %s\n", strconv.Quote(name)))
 	}
 
 	sb.WriteString("  - name: ⚡ 自动测速\n    type: url-test\n    url: http://www.gstatic.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range proxyNames {
-		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
+		sb.WriteString(fmt.Sprintf("      - %s\n", strconv.Quote(name)))
 	}
 
 	sb.WriteString("\nrules:\n  - DOMAIN-SUFFIX,google.com,🚀 节点选择\n  - DOMAIN-KEYWORD,github,🚀 节点选择\n  - MATCH,🚀 节点选择\n")
@@ -407,10 +419,11 @@ func generateClashYaml(configs []string) {
 	}
 }
 
+// 严苛的名字清理器，确保符合标准 YAML 标记规范
 func sanitizeName(name string) string {
 	name, _ = url.QueryUnescape(name)
-	name = strings.ReplaceAll(name, "\"", "")
-	name = strings.ReplaceAll(name, "'", "")
-	name = strings.ReplaceAll(name, ":", "-")
+	// 移除非打印字符和容易引起混淆的标记
+	name = strings.ReplaceAll(name, "\n", "")
+	name = strings.ReplaceAll(name, "\r", "")
 	return strings.TrimSpace(name)
 }
