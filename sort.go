@@ -342,7 +342,7 @@ func generateClashYaml(configs []string) {
 					continue
 				}
 				// 统一为 name 和 password 加双引号保护
-				line := fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: \"%s\"\n    udp: true", name, host, port, password)
+				line := fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: \"%s\"\n    udp: true\n    skip-cert-verify: true", name, host, port, password)
 				q := u.Query()
 				sni := strings.ReplaceAll(q.Get("sni"), " ", "")
 				if sni != "" {
