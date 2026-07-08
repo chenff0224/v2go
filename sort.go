@@ -275,7 +275,7 @@ func generateClashYaml(configs []string) {
 			var name string
 			remark := u.Fragment
 			if remark != "" {
-				name = sanitizeName(remark) // 【真正挂载清洗函数，确保彻底干掉空格和特殊字符】
+				name = sanitizeName(remark)
 			}
 
 			if strings.HasPrefix(link, "vless://") {
@@ -303,10 +303,12 @@ func generateClashYaml(configs []string) {
 						fp := strings.ReplaceAll(q.Get("fp"), " ", "")
 						pbk := strings.ReplaceAll(q.Get("pbk"), " ", "")
 						sid := strings.ReplaceAll(q.Get("sid"), " ", "")
+						
+						// 【强力修复】严格校验 short-id (sid) 的合法性，必须是合法的偶数位 16 进制字符串，否则彻底不输出此属性以防 Clash 报错崩溃
 						if fp != "" && pbk != "" {
 							line += fmt.Sprintf("\n    client-fingerprint: %s", fp)
 							line += fmt.Sprintf("\n    reality-opts:\n      public-key: %s", pbk)
-							if sid != "" {
+							if sid != "" && isValidHex(sid) && len(sid)%2 == 0 {
 								line += fmt.Sprintf("\n      short-id: %s", sid)
 							}
 						}
@@ -449,8 +451,18 @@ func sanitizeName(name string) string {
 	name = strings.ReplaceAll(name, "\r", "")
 	name = strings.ReplaceAll(name, " ", "") 
 	name = strings.ReplaceAll(name, ":", "-")
-	name = strings.ReplaceAll(name, "|", "-") // 【把带 | 的全部变成 - 彻底干掉报错根源】
+	name = strings.ReplaceAll(name, "|", "-") 
 	name = strings.ReplaceAll(name, "[", "")
 	name = strings.ReplaceAll(name, "]", "")
 	return strings.TrimSpace(name)
+}
+
+// 检查字符串是否是合法的 Hex
+func isValidHex(s string) bool {
+	for _, c := range s {
+		if !((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+			return false
+		}
+	}
+	return true
 }
