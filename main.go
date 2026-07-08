@@ -1018,4 +1018,3 @@ func getHostPort(config, protocol string) (string, string) {
 	return "", ""
 }
 
-func sortConfigs() {}
