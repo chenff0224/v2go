@@ -264,7 +264,7 @@ func generateClashYaml(configs []string) {
 			proxyLines = append(proxyLines, line)
 			proxyNames = append(proxyNames, name)
 
-		} else if strings.HasPrefix(link, "vless://") || strings.HasPrefix(link, "trojan://") || strings.HasPrefix(link, "ss://") || strings.HasPrefix(link, "hy2://") {
+		} else if strings.HasPrefix(link, "trojan://") || strings.HasPrefix(link, "ss://") || strings.HasPrefix(link, "hy2://") {
 			u, err := url.Parse(link)
 			if err != nil {
 				continue
