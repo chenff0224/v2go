@@ -758,7 +758,7 @@ func writeMainConfigFile(filename string, configs []string) error {
 	return nil
 }
 
-// 终极全兼容版 writeClashYaml（彻底终结 short id 弹窗）
+// 终极防畸形全隔离版 writeClashYaml
 func writeClashYaml(configs []string) {
 	var sb strings.Builder
 
@@ -768,9 +768,6 @@ func writeClashYaml(configs []string) {
 
 	sb.WriteString("proxies:\n")
 	var activeNames []string
-
-	// 用正则安全清洗节点别名中的非法 YAML 符号
-	invalidYamlChars := regexp.MustCompile(`['":#,\-\[\]\{\}\(\)\*\?\|&\^]`)
 
 	for i, configStr := range configs {
 		u, err := url.Parse(configStr)
@@ -790,23 +787,18 @@ func writeClashYaml(configs []string) {
 		if u.User != nil {
 			id = u.User.Username()
 		}
+		
+		// 【核心防御】：如果 ID 为空，或者属于 VLESS/VMess 但 UUID 长度不是标准的 36 位，直接就地扔掉！
+		// 这样可以 100% 过滤掉所有带 reality 碎渣、残缺 sid 或格式严重错乱的断头节点
 		if id == "" {
 			continue
 		}
+		if (proto == "vless" || proto == "vmess") && len(id) != 36 {
+			continue
+		}
 
-		// 提取并清洗节点别名
-		rawName := u.Fragment
-		if rawName == "" {
-			rawName = fmt.Sprintf("%s-%s", strings.ToUpper(proto), host)
-		} else {
-			rawName, _ = url.PathUnescape(rawName)
-		}
-		safeName := invalidYamlChars.ReplaceAllString(rawName, "")
-		safeName = strings.TrimSpace(safeName)
-		if safeName == "" {
-			safeName = fmt.Sprintf("NODE-%d", i)
-		}
-		safeName = fmt.Sprintf("%s-%d", safeName, i)
+		// 极其简单直接地生成别名，安全且不依赖额外包
+		safeName := fmt.Sprintf("%s-%s-%d", strings.ToUpper(proto), host, i)
 
 		// 2. 根据协议最简化拼装
 		switch proto {
@@ -814,16 +806,15 @@ func writeClashYaml(configs []string) {
 			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vmess\n    server: %s\n    port: %s\n    uuid: %s\n    alterId: 0\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "vless":
-			// 【终极策略】：强行写入基础字段，并提供基础空安全防护，防止部分 Clash 核心强制校验 short-id
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n    udp: true\n", safeName, host, port, id))
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: vless\n    server: %s\n    port: %s\n    uuid: %s\n    cipher: auto\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		case "trojan":
-			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n    udp: true\n", safeName, host, port, id))
+			sb.WriteString(fmt.Sprintf("  - name: \"%s\"\n    type: trojan\n    server: %s\n    port: %s\n    password: %s\n", safeName, host, port, id))
 			activeNames = append(activeNames, safeName)
 		}
 	}
 
-	// 3. 加入对 YouTube 深度优化的测速自动挑选组（Generate 204）
+	// 3. 强制加入对 YouTube 深度优化的测速自动挑选组
 	sb.WriteString("\nproxy-groups:\n")
 	sb.WriteString("  - name: 🚀 自动挑选(YouTube优化)\n    type: url-test\n    url: https://www.youtube.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range activeNames {
