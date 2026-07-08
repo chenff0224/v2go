@@ -434,7 +434,7 @@ func generateClashYaml(configs []string) {
 		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
 	}
 
-	sb.WriteString("  - name: ⚡ 自动测速\n    type: url-test\n    url: http://www.gstatic.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
+	sb.WriteString("  - name: ⚡ 自动测速\n    type: url-test\n    url: http://cp.cloudflare.com/generate_204\n    interval: 300\n    tolerance: 50\n    proxies:\n")
 	for _, name := range proxyNames {
 		sb.WriteString(fmt.Sprintf("      - \"%s\"\n", name))
 	}
