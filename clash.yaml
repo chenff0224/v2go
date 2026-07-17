@@ -27,22 +27,6 @@ dns:
     - https://dns.google/dns-query
 
 proxies:
-  - name: "v2go - TROJAN - 1"
-    type: trojan
-    server: 188.114.97.6
-    port: 2087
-    password: "MiTiVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: fl-bo--7---u.aPp-cLoud.IR
-  - name: "v2go - TROJAN - 2"
-    type: trojan
-    server: 104.16.72.2
-    port: 2083
-    password: "MiTiVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: 8162-272-282-9.MaqRoR.iR
   - name: "v2go - TROJAN - 4"
     type: trojan
     server: 104.16.71.48
@@ -51,39 +35,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: 93-282-493-28.MaqRoR.iR
-  - name: "v2go - TROJAN - 6"
-    type: trojan
-    server: 104.18.152.77
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 16"
-    type: trojan
-    server: 165.215.250.14
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 19"
-    type: trojan
-    server: 104.19.174.68
-    port: 443
-    password: "a5e355b9-11fc-449a-aa7b-eb707783f25a"
-    udp: true
-    skip-cert-verify: true
-    servername: px8r9i1b4k.bpusfaster2.top
-  - name: "v2go - TROJAN - 23"
-    type: trojan
-    server: 104.25.108.147
-    port: 8080
-    password: "9c521e24-7326-acd3-acec-d0afac2b465d"
-    udp: true
-    skip-cert-verify: true
-    servername: red-cell-47f9.milaniomilan9.workers.dev
-  - name: "v2go - 🇺🇸 US - TROJAN - 48"
+  - name: "v2go - 🇺🇸 US - TROJAN - 5"
     type: trojan
     server: 151.101.56.6
     port: 443
@@ -91,15 +43,23 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: ssl.fastly.com
-  - name: "v2go - TROJAN - 50"
+  - name: "v2go - 🇺🇸 US - TROJAN - 9"
     type: trojan
-    server: 162.159.38.183
+    server: 198.177.57.9
     port: 443
-    password: "VPNCUSTOMIZE"
+    password: "521314"
     udp: true
     skip-cert-verify: true
-    servername: ww.offers.de5.net
-  - name: "v2go - TROJAN - 55"
+    servername: tjplay.lxdxo.kdns.fr
+  - name: "v2go - 🇫🇷 FR - TROJAN - 11"
+    type: trojan
+    server: 81.255.155.10
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.creationlong.org
+  - name: "v2go - TROJAN - 12"
     type: trojan
     server: 188.114.97.6
     port: 443
@@ -107,15 +67,165 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: 2.1.mitivpn.dee.srfsl.gleobal.fastl3y.n3et.mitivpn.site
-  - name: "v2go - 🇳🇱 NL - TROJAN - 117"
+  - name: "v2go - 🇺🇸 US - TROJAN - 13"
     type: trojan
-    server: 91.221.190.80
+    server: 199.232.78.140
     port: 443
-    password: "8r<[9'l6hAO#8ZQi"
+    password: "MiTiVPN"
     udp: true
     skip-cert-verify: true
-    servername: Koma-YT.PAGeS.Dev
-  - name: "v2go - 🇺🇸 US - TROJAN - 118"
+    servername: global.ssl.fastly.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 14"
+    type: trojan
+    server: 151.101.56.7
+    port: 443
+    password: "MITIVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: ssl.fastly.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 16"
+    type: trojan
+    server: 151.101.34.144
+    port: 443
+    password: "4aFbwy5BHa"
+    udp: true
+    skip-cert-verify: true
+    servername: global.fastly.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 19"
+    type: trojan
+    server: 151.101.1.194
+    port: 443
+    password: "MiTiVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: mitivpn--mitivpn--mitivpn-mitivpn--mitivpn-mitivpn.global.ssl.fastly.net
+  - name: "v2go - TROJAN - 21"
+    type: trojan
+    server: 104.19.174.68
+    port: 443
+    password: "a5e355b9-11fc-449a-aa7b-eb707783f25a"
+    udp: true
+    skip-cert-verify: true
+    servername: px8r9i1b4k.bpusfaster2.top
+  - name: "v2go - 🇮🇳 IN - TROJAN - 22"
+    type: trojan
+    server: 199.232.22.39
+    port: 443
+    password: "MiTiVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: default.ssl.fastly.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 27"
+    type: trojan
+    server: 165.215.250.14
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.calmlunch.com
+  - name: "v2go - TROJAN - 29"
+    type: trojan
+    server: 104.18.152.77
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 30"
+    type: trojan
+    server: 104.25.108.147
+    port: 8080
+    password: "9c521e24-7326-acd3-acec-d0afac2b465d"
+    udp: true
+    skip-cert-verify: true
+    servername: red-cell-47f9.milaniomilan9.workers.dev
+  - name: "v2go - TROJAN - 31"
+    type: trojan
+    server: 104.16.72.2
+    port: 2083
+    password: "MiTiVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: 8162-272-282-9.MaqRoR.iR
+  - name: "v2go - TROJAN - 32"
+    type: trojan
+    server: 188.114.97.6
+    port: 2087
+    password: "MiTiVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: fl-bo--7---u.aPp-cLoud.IR
+  - name: "v2go - TROJAN - 34"
+    type: trojan
+    server: 162.159.38.183
+    port: 443
+    password: "VPNCUSTOMIZE"
+    udp: true
+    skip-cert-verify: true
+    servername: ww.offers.de5.net
+  - name: "v2go - TROJAN - 104"
+    type: trojan
+    server: www.ignitelimit.com
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇯🇵 JP - TROJAN - 130"
+    type: trojan
+    server: 103.106.228.187
+    port: 54603
+    password: "u2sVknrSIFjDojeqAUjgYk89m9szHcMQ"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇯🇵 JP - TROJAN - 131"
+    type: trojan
+    server: 126.220.82.161
+    port: 443
+    password: "521314"
+    udp: true
+    skip-cert-verify: true
+    servername: tjplay.lxdxo.kdns.fr
+  - name: "v2go - 🇮🇪 IE - TROJAN - 133"
+    type: trojan
+    server: 146.70.90.194
+    port: 57452
+    password: "t1k169n5zmvvwn96r9ft"
+    udp: true
+    skip-cert-verify: true
+    servername: www.vk.com
+  - name: "v2go - 🇰🇷 KR - TROJAN - 134"
+    type: trojan
+    server: 211.49.57.178
+    port: 443
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    udp: true
+    skip-cert-verify: true
+    servername: hhcm.hhxaf.cc.cd
+  - name: "v2go - 🇰🇷 KR - TROJAN - 135"
+    type: trojan
+    server: 211.49.57.179
+    port: 443
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    udp: true
+    skip-cert-verify: true
+    servername: tjsp.hhxaf.cc.cd
+  - name: "v2go - 🇰🇷 KR - TROJAN - 136"
+    type: trojan
+    server: 211.49.57.175
+    port: 443
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    udp: true
+    skip-cert-verify: true
+    servername: hhcm.hhxaf.cc.cd
+  - name: "v2go - 🇹🇼 TW - TROJAN - 142"
+    type: trojan
+    server: 220.135.92.105
+    port: 2087
+    password: "521314"
+    udp: true
+    skip-cert-verify: true
+    servername: tjplay.lxdxo.kdns.fr
+  - name: "v2go - 🇺🇸 US - TROJAN - 146"
     type: trojan
     server: 167.82.101.251
     port: 443
@@ -123,82 +233,53 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: ssl.fastly.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 132"
-    type: trojan
-    server: polite-coyote.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: polite-coyote.rooster465.autos
-  - name: "v2go - 🇮🇹 IT - TROJAN - 138"
-    type: trojan
-    server: 151.241.215.148
-    port: 443
-    password: "8r<[9'l6hAO#8ZQi"
-    udp: true
-    skip-cert-verify: true
-    servername: Koma-YT.PAGeS.Dev
-  - name: "v2go - 🇪🇸 ES - TROJAN - 140"
-    type: trojan
-    server: 103.45.245.208
-    port: 2053
-    password: "rYuChHcwQZskq9E0zdoR"
-    udp: true
-    skip-cert-verify: true
-    servername: vpn5.rnmcnm.com
-  - name: "v2go - 🇩🇪 DE - TROJAN - 143"
-    type: trojan
-    server: 185.137.157.156
-    port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇩🇪 DE - TROJAN - 144"
-    type: trojan
-    server: 185.137.157.142
-    port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇮🇹 IT - TROJAN - 146"
-    type: trojan
-    server: 151.101.242.172
-    port: 80
-    password: "Mitivpn"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇩🇪 DE - TROJAN - 149"
-    type: trojan
-    server: 185.137.157.135
-    port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
-    udp: true
-    skip-cert-verify: true
-    servername: 185.137.157.135
-  - name: "v2go - 🇩🇪 DE - TROJAN - 150"
-    type: trojan
-    server: 185.137.157.149
-    port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇩🇪 DE - TROJAN - 152"
-    type: trojan
-    server: 146.75.116.190
-    port: 80
-    password: "Mitivpn"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇩🇪 DE - TROJAN - 153"
+  - name: "v2go - 🇩🇪 DE - TROJAN - 155"
     type: trojan
     server: 185.137.157.151
     port: 443
     password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
     udp: true
     skip-cert-verify: true
-    servername: 185.137.157.151
-  - name: "v2go - 🇦🇹 AT - TROJAN - 160"
+  - name: "v2go - 🇳🇱 NL - TROJAN - 162"
+    type: trojan
+    server: 91.221.190.80
+    port: 443
+    password: "8r<[9'l6hAO#8ZQi"
+    udp: true
+    skip-cert-verify: true
+    servername: Koma-YT.PAGeS.Dev
+  - name: "v2go - 🇭🇰 HK - TROJAN - 163"
+    type: trojan
+    server: 18.163.5.109
+    port: 35966
+    password: "BxceQaOe"
+    udp: true
+    skip-cert-verify: true
+    servername: t.me/ripaojiedian
+  - name: "v2go - 🇭🇰 HK - TROJAN - 164"
+    type: trojan
+    server: 18.163.5.109
+    port: 7674
+    password: "BxceQaOe"
+    udp: true
+    skip-cert-verify: true
+    servername: t.me/ripaojiedian
+  - name: "v2go - 🇭🇰 HK - TROJAN - 165"
+    type: trojan
+    server: 18.162.51.224
+    port: 4099
+    password: "BxceQaOe"
+    udp: true
+    skip-cert-verify: true
+    servername: t.me/ripaojiedian
+  - name: "v2go - 🇩🇪 DE - TROJAN - 167"
+    type: trojan
+    server: 185.137.157.156
+    port: 443
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇦🇹 AT - TROJAN - 168"
     type: trojan
     server: 152.53.200.89
     port: 8443
@@ -206,6 +287,43 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: Koma-YT.PAGeS.Dev
+  - name: "v2go - 🇪🇸 ES - TROJAN - 171"
+    type: trojan
+    server: 103.45.245.208
+    port: 2053
+    password: "rYuChHcwQZskq9E0zdoR"
+    udp: true
+    skip-cert-verify: true
+    servername: vpn5.rnmcnm.com
+  - name: "v2go - 🇩🇪 DE - TROJAN - 174"
+    type: trojan
+    server: 185.137.157.149
+    port: 443
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇩🇪 DE - TROJAN - 176"
+    type: trojan
+    server: 146.75.116.190
+    port: 80
+    password: "Mitivpn"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇮🇹 IT - TROJAN - 180"
+    type: trojan
+    server: 151.241.215.148
+    port: 443
+    password: "8r<[9'l6hAO#8ZQi"
+    udp: true
+    skip-cert-verify: true
+    servername: Koma-YT.PAGeS.Dev
+  - name: "v2go - 🇮🇹 IT - TROJAN - 183"
+    type: trojan
+    server: 151.101.242.172
+    port: 80
+    password: "Mitivpn"
+    udp: true
+    skip-cert-verify: true
   - name: "v2go - 🇮🇪 IE - TROJAN - 187"
     type: trojan
     server: 3.249.67.252
@@ -214,100 +332,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: singular-lark.rooster465.autos
-  - name: "v2go - TROJAN - 208"
-    type: trojan
-    server: www.ignitelimit.com
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇰🇷 KR - TROJAN - 233"
-    type: trojan
-    server: 211.49.57.179
-    port: 443
-    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
-    udp: true
-    skip-cert-verify: true
-    servername: tjsp.hhxaf.cc.cd
-  - name: "v2go - 🇰🇷 KR - TROJAN - 234"
-    type: trojan
-    server: 211.49.57.175
-    port: 443
-    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
-    udp: true
-    skip-cert-verify: true
-    servername: hhcm.hhxaf.cc.cd
-  - name: "v2go - 🇰🇷 KR - TROJAN - 235"
-    type: trojan
-    server: 211.49.57.178
-    port: 443
-    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
-    udp: true
-    skip-cert-verify: true
-    servername: hhcm.hhxaf.cc.cd
-  - name: "v2go - 🇭🇰 HK - TROJAN - 250"
-    type: trojan
-    server: 18.163.5.109
-    port: 7674
-    password: "BxceQaOe"
-    udp: true
-    skip-cert-verify: true
-    servername: t.me/ripaojiedian
-  - name: "v2go - 🇭🇰 HK - TROJAN - 254"
-    type: trojan
-    server: 18.163.41.112
-    port: 9149
-    password: "BxceQaOe"
-    udp: true
-    skip-cert-verify: true
-    servername: t.me%2Fripaojiedian
-  - name: "v2go - 🇭🇰 HK - TROJAN - 255"
-    type: trojan
-    server: 18.162.51.224
-    port: 4099
-    password: "BxceQaOe"
-    udp: true
-    skip-cert-verify: true
-    servername: t.me%2Fripaojiedian
-  - name: "v2go - 🇭🇰 HK - TROJAN - 257"
-    type: trojan
-    server: 18.163.5.109
-    port: 35966
-    password: "BxceQaOe"
-    udp: true
-    skip-cert-verify: true
-    servername: t.me/ripaojiedian
-  - name: "v2go - 🇵🇰 PK - TROJAN - 265"
-    type: trojan
-    server: 149.104.104.58
-    port: 443
-    password: "S.ibYdZshHTF-ne.M+.Fznp_-hyFFnCSix"
-    udp: true
-    skip-cert-verify: true
-    servername: 149.104.104.58
-  - name: "v2go - 🇫🇷 FR - TROJAN - 272"
-    type: trojan
-    server: 38.60.168.129
-    port: 443
-    password: "Lw_DP4+W.J5K33MD2Jy5zQVuT5n71+=BcD"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇺🇸 US - TROJAN - 287"
-    type: trojan
-    server: 38.54.64.247
-    port: 443
-    password: "ks3og6wZ9kH8UJv1bmpvwXbfgDNNaTd1Lk"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇦🇺 AU - TROJAN - 291"
-    type: trojan
-    server: selected-bison.rooster465.autos
-    port: 443
-    password: "KV63147582"
-    udp: true
-    skip-cert-verify: true
-    servername: selected-bison.rooster465.autos
-  - name: "v2go - TROJAN - 329"
+  - name: "v2go - TROJAN - 221"
     type: trojan
     server: jjyeye.cloudflare.182682.xyz
     port: 443
@@ -315,15 +340,22 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: bjbx8xu6iih7zht5.jptimecsgo.xyz
-  - name: "v2go - TROJAN - 335"
+  - name: "v2go - 🇵🇰 PK - TROJAN - 312"
     type: trojan
-    server: mmefi.cloudflare.182682.xyz
+    server: 149.104.104.58
     port: 443
-    password: "a5e355b9-11fc-449a-aa7b-eb707783f25a"
+    password: "S.ibYdZshHTF-ne.M+.Fznp_-hyFFnCSix"
     udp: true
     skip-cert-verify: true
-    servername: thank.bpmalai2026.top
-  - name: "v2go - TROJAN - 347"
+    servername: 149.104.104.58
+  - name: "v2go - 🇺🇸 US - TROJAN - 319"
+    type: trojan
+    server: 38.54.64.247
+    port: 443
+    password: "ks3og6wZ9kH8UJv1bmpvwXbfgDNNaTd1Lk"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - TROJAN - 408"
     type: trojan
     server: tw3011h8r.cloudflare.182682.xyz
     port: 443
@@ -331,14 +363,31 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: kfb9frqf0v.bpis2026.top
-  - name: "v2go - 🇵🇱 PL - TROJAN - 350"
+  - name: "v2go - 🇦🇺 AU - TROJAN - 423"
     type: trojan
-    server: upright-hamster.rooster465.autos
+    server: selected-bison.rooster465.autos
     port: 443
-    password: "PI36027154"
+    password: "KV63147582"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - TROJAN - 380"
+    servername: selected-bison.rooster465.autos
+  - name: "v2go - 🇺🇸 US - TROJAN - 439"
+    type: trojan
+    server: polite-coyote.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: polite-coyote.rooster465.autos
+  - name: "v2go - TROJAN - 447"
+    type: trojan
+    server: mmefi.cloudflare.182682.xyz
+    port: 443
+    password: "a5e355b9-11fc-449a-aa7b-eb707783f25a"
+    udp: true
+    skip-cert-verify: true
+    servername: thank.bpmalai2026.top
+  - name: "v2go - TROJAN - 453"
     type: trojan
     server: tt45y3.cloudflare.182682.xyz
     port: 443
@@ -346,126 +395,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: tuerqitt.bper2026.top
-  - name: "v2go - 🇮🇪 IE - TROJAN - 390"
-    type: trojan
-    server: singular-lark.rooster465.autos
-    port: 443
-    password: "XG59623478"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇯🇵 JP - TROJAN - 395"
-    type: trojan
-    server: free-hare.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: free-hare.rooster465.autos
-  - name: "v2go - TROJAN - 550"
-    type: trojan
-    server: 188.114.98.0
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 551"
-    type: trojan
-    server: 104.16.72.70
-    port: 443
-    password: "mitivpn"
-    udp: true
-    skip-cert-verify: true
-    servername: gamingdll.ir
-  - name: "v2go - 🇺🇸 US - TROJAN - 552"
-    type: trojan
-    server: 199.232.206.245
-    port: 443
-    password: "7b12dfabbe374661a12d11d698d86fbd"
-    udp: true
-    skip-cert-verify: true
-    servername: ssl.fastly.com
-  - name: "v2go - TROJAN - 553"
-    type: trojan
-    server: 104.18.152.219
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 554"
-    type: trojan
-    server: 151.101.56.7
-    port: 443
-    password: "7b12dfabbe374661a12d11d698d86fbd"
-    udp: true
-    skip-cert-verify: true
-    servername: ssl.fastly.com
-  - name: "v2go - TROJAN - 555"
-    type: trojan
-    server: 104.18.37.237
-    port: 443
-    password: "MiTiVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: S-o-W.MaQror.ir
-  - name: "v2go - 🇸🇨 SC - TROJAN - 556"
-    type: trojan
-    server: 45.130.125.2
-    port: 443
-    password: "MITIVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: deioej-ieid.App-Cloud.ir
-  - name: "v2go - TROJAN - 557"
-    type: trojan
-    server: 162.159.38.119
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.creationlong.org
-  - name: "v2go - 🇳🇿 NZ - TROJAN - 558"
-    type: trojan
-    server: 202.37.33.80
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.creationlong.org
-  - name: "v2go - TROJAN - 559"
-    type: trojan
-    server: 104.16.72.41
-    port: 443
-    password: "MiTiVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: sw.App-Cloud.ir
-  - name: "v2go - 🇱🇹 LT - TROJAN - 560"
-    type: trojan
-    server: 89.116.250.135
-    port: 443
-    password: "MiTiVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: Win-Nll--l.App-Cloud.Ir
-  - name: "v2go - TROJAN - 561"
-    type: trojan
-    server: 172.67.180.92
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.multiplydose.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 564"
-    type: trojan
-    server: 167.68.4.199
-    port: 2053
-    password: "Aimer"
-    udp: true
-    skip-cert-verify: true
-    servername: epge.muarua.filegear-sg.me
-  - name: "v2go - TROJAN - 571"
+  - name: "v2go - TROJAN - 467"
     type: trojan
     server: cdn2.bpcdn.cc
     port: 443
@@ -473,206 +403,342 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: tuerqitt.bper2026.top
-  - name: "v2go - TROJAN - 575"
+  - name: "v2go - 🇩🇪 DE - TROJAN - 587"
     type: trojan
-    server: www.calmlunch.com
+    server: 185.137.157.142
     port: 443
-    password: "humanity"
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - 🇯🇵 JP - TROJAN - 608"
+  - name: "v2go - 🇺🇸 US - TROJAN - 588"
     type: trojan
-    server: 103.106.228.187
-    port: 54603
-    password: "u2sVknrSIFjDojeqAUjgYkCnh9szHcMQ"
+    server: 167.68.4.199
+    port: 2053
+    password: "Aimer"
     udp: true
     skip-cert-verify: true
-    servername: 103.106.228.187
-  - name: "v2go - 🇸🇬 SG - TROJAN - 616"
+    servername: epge.muarua.filegear-sg.me
+  - name: "v2go - 🇩🇪 DE - TROJAN - 590"
     type: trojan
-    server: immense-eagle.rooster465.autos
+    server: 185.137.157.135
     port: 443
-    password: "CF68213490"
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
     udp: true
     skip-cert-verify: true
-    servername: immense-eagle.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 617"
+    servername: 185.137.157.135
+  - name: "v2go - 🇯🇵 JP - TROJAN - 596"
     type: trojan
-    server: gentle-raptor.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: gentle-raptor.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 618"
-    type: trojan
-    server: logical-koala.rooster465.autos
+    server: alert-redfish.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: logical-koala.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 619"
+    servername: alert-redfish.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 597"
     type: trojan
-    server: learning-wren.rooster465.autos
+    server: adapting-basilisk.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: learning-wren.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 620"
+    servername: adapting-basilisk.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 598"
     type: trojan
-    server: intimate-moray.rooster465.autos
+    server: active-hippo.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: intimate-moray.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 621"
+    servername: active-hippo.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 599"
     type: trojan
-    server: internal-krill.rooster465.autos
+    server: alert-fish.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: internal-krill.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 625"
+    servername: alert-fish.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 600"
     type: trojan
-    server: smashing-fawn.rooster465.autos
+    server: awake-satyr.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: smashing-fawn.rooster465.autos
+    servername: awake-satyr.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 601"
+    type: trojan
+    server: accurate-frog.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: accurate-frog.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 602"
+    type: trojan
+    server: careful-penguin.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: careful-penguin.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 603"
+    type: trojan
+    server: adapting-giraffe.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: adapting-giraffe.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 604"
+    type: trojan
+    server: caring-wallaby.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: caring-wallaby.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 605"
+    type: trojan
+    server: aware-puma.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: aware-puma.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 606"
+    type: trojan
+    server: brief-warthog.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: brief-warthog.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 607"
+    type: trojan
+    server: central-jawfish.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: central-jawfish.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 609"
+    type: trojan
+    server: allowing-halibut.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: allowing-halibut.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 610"
+    type: trojan
+    server: communal-sunbird.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: communal-sunbird.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 611"
+    type: trojan
+    server: bright-cicada.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: bright-cicada.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 612"
+    type: trojan
+    server: composed-sheep.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: composed-sheep.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 613"
+    type: trojan
+    server: charming-puma.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: charming-puma.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 614"
+    type: trojan
+    server: clear-heron.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: clear-heron.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 615"
+    type: trojan
+    server: climbing-frog.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: climbing-frog.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 616"
+    type: trojan
+    server: darling-mongrel.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: darling-mongrel.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 618"
+    type: trojan
+    server: eager-platypus.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: eager-platypus.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 619"
+    type: trojan
+    server: devoted-zebra.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: devoted-zebra.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 620"
+    type: trojan
+    server: easy-barnacle.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: easy-barnacle.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 621"
+    type: trojan
+    server: definite-ladybird.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: definite-ladybird.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 622"
+    type: trojan
+    server: eminent-dogfish.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: eminent-dogfish.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 623"
+    type: trojan
+    server: equipped-moth.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: equipped-moth.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 624"
+    type: trojan
+    server: diverse-thrush.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: diverse-thrush.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 625"
+    type: trojan
+    server: enormous-whippet.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: enormous-whippet.rooster465.autos
   - name: "v2go - 🇯🇵 JP - TROJAN - 626"
     type: trojan
-    server: star-cheetah.rooster465.autos
+    server: evolving-mollusk.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: star-cheetah.rooster465.autos
+    servername: evolving-mollusk.rooster465.autos
   - name: "v2go - 🇯🇵 JP - TROJAN - 627"
     type: trojan
-    server: star-moray.rooster465.autos
+    server: eternal-woodcock.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: star-moray.rooster465.autos
+    servername: eternal-woodcock.rooster465.autos
   - name: "v2go - 🇯🇵 JP - TROJAN - 628"
     type: trojan
-    server: star-dodo.rooster465.autos
+    server: fair-werewolf.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: star-dodo.rooster465.autos
+    servername: fair-werewolf.rooster465.autos
   - name: "v2go - 🇰🇷 KR - TROJAN - 629"
     type: trojan
-    server: star-bluejay.rooster465.autos
+    server: eternal-horse.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: star-bluejay.rooster465.autos
-  - name: "v2go - 🇰🇷 KR - TROJAN - 630"
+    servername: eternal-horse.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 630"
     type: trojan
-    server: smooth-lark.rooster465.autos
+    server: funny-hawk.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: smooth-lark.rooster465.autos
+    servername: funny-hawk.rooster465.autos
   - name: "v2go - 🇯🇵 JP - TROJAN - 631"
     type: trojan
-    server: steady-prawn.rooster465.autos
+    server: free-hare.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: steady-prawn.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 632"
+    servername: free-hare.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 632"
     type: trojan
-    server: sharp-scorpion.rooster465.autos
+    server: excited-squirrel.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: sharp-scorpion.rooster465.autos
-  - name: "v2go - 🇺🇸 US - TROJAN - 633"
+    servername: excited-squirrel.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 633"
     type: trojan
-    server: tolerant-rattler.rooster465.autos
+    server: funny-hen.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: tolerant-rattler.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 634"
+    servername: funny-hen.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 634"
     type: trojan
-    server: summary-firefly.rooster465.autos
+    server: evolving-platypus.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: summary-firefly.rooster465.autos
+    servername: evolving-platypus.rooster465.autos
   - name: "v2go - 🇯🇵 JP - TROJAN - 635"
     type: trojan
-    server: thankful-mustang.rooster465.autos
+    server: concrete-aardvark.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: thankful-mustang.rooster465.autos
+    servername: concrete-aardvark.rooster465.autos
   - name: "v2go - 🇰🇷 KR - TROJAN - 636"
     type: trojan
-    server: together-impala.rooster465.autos
+    server: gentle-mastiff.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: together-impala.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 637"
-    type: trojan
-    server: star-hagfish.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: star-hagfish.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 638"
-    type: trojan
-    server: upright-rhino.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: upright-rhino.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 639"
-    type: trojan
-    server: welcome-monitor.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: welcome-monitor.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 640"
-    type: trojan
-    server: summary-lemming.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: summary-lemming.rooster465.autos
-  - name: "v2go - 🇰🇷 KR - TROJAN - 641"
-    type: trojan
-    server: tolerant-stag.rooster465.autos
-    port: 443
-    password: "CF68213490"
-    udp: true
-    skip-cert-verify: true
-    servername: tolerant-stag.rooster465.autos
-  - name: "v2go - TROJAN - 642"
+    servername: gentle-mastiff.rooster465.autos
+  - name: "v2go - TROJAN - 637"
     type: trojan
     server: 172.64.144.251
     port: 2083
@@ -680,15 +746,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: purple-recipe-5e30.cimavo4626.workers.dev
-  - name: "v2go - 🇯🇵 JP - TROJAN - 643"
+  - name: "v2go - 🇰🇷 KR - TROJAN - 638"
     type: trojan
-    server: wealthy-gobbler.rooster465.autos
+    server: growing-ram.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: wealthy-gobbler.rooster465.autos
-  - name: "v2go - TROJAN - 644"
+    servername: growing-ram.rooster465.autos
+  - name: "v2go - TROJAN - 639"
     type: trojan
     server: 162.159.38.62
     port: 443
@@ -696,219 +762,70 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: Win-use-Cv-o.Maqror.ir
-  - name: "v2go - 🇸🇬 SG - TROJAN - 645"
+  - name: "v2go - 🇰🇷 KR - TROJAN - 640"
     type: trojan
-    server: tight-gator.rooster465.autos
+    server: helping-shark.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: tight-gator.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 646"
+    servername: helping-shark.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 641"
     type: trojan
-    server: united-molly.rooster465.autos
+    server: immune-mullet.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: united-molly.rooster465.autos
-  - name: "v2go - 🇭🇰 HK - TROJAN - 647"
+    servername: immune-mullet.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 642"
     type: trojan
-    server: well-marmot.rooster465.autos
+    server: grateful-owl.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: well-marmot.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 648"
+    servername: grateful-owl.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 643"
     type: trojan
-    server: ultimate-jaguar.rooster465.autos
+    server: informed-stud.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: ultimate-jaguar.rooster465.autos
-  - name: "v2go - 🇩🇪 DE - TROJAN - 649"
+    servername: informed-stud.rooster465.autos
+  - name: "v2go - 🇩🇪 DE - TROJAN - 644"
     type: trojan
-    server: evolving-baboon.rooster465.autos
-    port: 443
-    password: "KV63147582"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇳🇱 NL - TROJAN - 650"
-    type: trojan
-    server: game-firefly.rooster465.autos
-    port: 443
-    password: "KV63147582"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇩🇪 DE - TROJAN - 651"
-    type: trojan
-    server: together-insect.rooster465.autos
-    port: 443
-    password: "KV63147582"
-    udp: true
-    skip-cert-verify: true
-    servername: together-insect.rooster465.autos
-  - name: "v2go - 🇰🇷 KR - TROJAN - 652"
-    type: trojan
-    server: upward-yak.rooster465.autos
+    server: harmless-lab.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: upward-yak.rooster465.autos
-  - name: "v2go - 🇵🇱 PL - TROJAN - 654"
+  - name: "v2go - 🇺🇸 US - TROJAN - 645"
     type: trojan
-    server: more-trout.rooster465.autos
-    port: 443
-    password: "KV63147582"
-    udp: true
-    skip-cert-verify: true
-    servername: more-trout.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 655"
-    type: trojan
-    server: gentle-turtle.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: gentle-turtle.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 656"
-    type: trojan
-    server: vast-werewolf.rooster465.autos
+    server: tolerant-rattler.rooster465.autos
     port: 443
     password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: vast-werewolf.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 657"
+    servername: tolerant-rattler.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 646"
     type: trojan
-    server: grand-grub.rooster465.autos
+    server: gentle-raptor.rooster465.autos
     port: 443
-    password: "NQ26071394"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: grand-grub.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 658"
+    servername: gentle-raptor.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 647"
     type: trojan
-    server: direct-hawk.rooster465.autos
+    server: live-drake.rooster465.autos
     port: 443
-    password: "NQ26071394"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: direct-hawk.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 660"
-    type: trojan
-    server: bold-eagle.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: bold-eagle.rooster465.autos
-  - name: "v2go - 🇭🇰 HK - TROJAN - 661"
-    type: trojan
-    server: electric-sturgeon.rooster465.autos
-    port: 443
-    password: "KV63147582"
-    udp: true
-    skip-cert-verify: true
-    servername: electric-sturgeon.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 662"
-    type: trojan
-    server: inviting-rabbit.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: inviting-rabbit.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 663"
-    type: trojan
-    server: arriving-koala.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: arriving-koala.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 664"
-    type: trojan
-    server: ace-liger.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: ace-liger.rooster465.autos
-  - name: "v2go - 🇮🇪 IE - TROJAN - 665"
-    type: trojan
-    server: fit-calf.rooster465.autos
-    port: 443
-    password: "OD90375861"
-    udp: true
-    skip-cert-verify: true
-    servername: fit-calf.rooster465.autos
-  - name: "v2go - 🇮🇪 IE - TROJAN - 666"
-    type: trojan
-    server: wired-tick.rooster465.autos
-    port: 443
-    password: "OD90375861"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇰🇷 KR - TROJAN - 667"
-    type: trojan
-    server: gentle-platypus.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: gentle-platypus.rooster465.autos
-  - name: "v2go - 🇩🇪 DE - TROJAN - 668"
-    type: trojan
-    server: quiet-condor.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: quiet-condor.rooster465.autos
-  - name: "v2go - 🇩🇪 DE - TROJAN - 669"
-    type: trojan
-    server: busy-hermit.rooster465.autos
-    port: 443
-    password: "OD90375861"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇯🇵 JP - TROJAN - 670"
-    type: trojan
-    server: skilled-polliwog.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: skilled-polliwog.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 671"
-    type: trojan
-    server: allowed-moose.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: allowed-moose.rooster465.autos
-  - name: "v2go - 🇯🇵 JP - TROJAN - 672"
-    type: trojan
-    server: 52.194.192.245
-    port: 443
-    password: "PI36027154"
-    udp: true
-    skip-cert-verify: true
-    servername: exciting-grizzly.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 673"
-    type: trojan
-    server: amazing-troll.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: amazing-troll.rooster465.autos
-  - name: "v2go - TROJAN - 674"
+    servername: live-drake.rooster465.autos
+  - name: "v2go - TROJAN - 648"
     type: trojan
     server: 104.16.174.12
     port: 443
@@ -916,14 +833,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - 🇩🇪 DE - TROJAN - 675"
-    type: trojan
-    server: 185.137.157.128
-    port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - TROJAN - 676"
+  - name: "v2go - TROJAN - 649"
     type: trojan
     server: 104.16.174.121
     port: 443
@@ -931,7 +841,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 677"
+  - name: "v2go - TROJAN - 650"
     type: trojan
     server: 104.16.174.37
     port: 443
@@ -939,7 +849,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 678"
+  - name: "v2go - TROJAN - 651"
     type: trojan
     server: 104.16.174.117
     port: 443
@@ -947,7 +857,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 679"
+  - name: "v2go - TROJAN - 652"
     type: trojan
     server: 104.16.174.36
     port: 443
@@ -955,7 +865,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 680"
+  - name: "v2go - TROJAN - 653"
     type: trojan
     server: 104.16.174.44
     port: 443
@@ -963,7 +873,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 681"
+  - name: "v2go - TROJAN - 654"
     type: trojan
     server: 104.16.174.6
     port: 443
@@ -971,7 +881,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 682"
+  - name: "v2go - TROJAN - 655"
     type: trojan
     server: 104.16.174.71
     port: 443
@@ -979,15 +889,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 683"
-    type: trojan
-    server: 104.18.152.225
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 684"
+  - name: "v2go - TROJAN - 656"
     type: trojan
     server: 104.18.152.208
     port: 443
@@ -995,15 +897,39 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 685"
+  - name: "v2go - 🇯🇵 JP - TROJAN - 657"
     type: trojan
-    server: 104.18.152.97
+    server: innocent-rattler.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: innocent-rattler.rooster465.autos
+  - name: "v2go - TROJAN - 658"
+    type: trojan
+    server: 104.18.152.219
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 686"
+  - name: "v2go - TROJAN - 659"
+    type: trojan
+    server: 104.18.152.225
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 660"
+    type: trojan
+    server: 104.16.72.41
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.calmlunch.com
+  - name: "v2go - TROJAN - 661"
     type: trojan
     server: 104.16.71.213
     port: 443
@@ -1011,23 +937,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇰🇷 KR - TROJAN - 687"
-    type: trojan
-    server: thorough-foxhound.rooster465.autos
-    port: 443
-    password: "NQ26071394"
-    udp: true
-    skip-cert-verify: true
-    servername: thorough-foxhound.rooster465.autos
-  - name: "v2go - TROJAN - 688"
-    type: trojan
-    server: 104.17.121.43
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 689"
+  - name: "v2go - TROJAN - 662"
     type: trojan
     server: 104.17.121.9
     port: 443
@@ -1035,7 +945,23 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 690"
+  - name: "v2go - TROJAN - 663"
+    type: trojan
+    server: 104.18.152.97
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 664"
+    type: trojan
+    server: 104.17.121.43
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.calmlunch.com
+  - name: "v2go - TROJAN - 665"
     type: trojan
     server: 104.17.121.71
     port: 443
@@ -1043,7 +969,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 691"
+  - name: "v2go - 🇸🇬 SG - TROJAN - 666"
+    type: trojan
+    server: immense-eagle.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: immense-eagle.rooster465.autos
+  - name: "v2go - TROJAN - 667"
     type: trojan
     server: 104.17.131.88
     port: 443
@@ -1051,15 +985,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 692"
-    type: trojan
-    server: 104.18.32.47
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 693"
+  - name: "v2go - TROJAN - 668"
     type: trojan
     server: 104.18.115.61
     port: 443
@@ -1067,7 +993,23 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 694"
+  - name: "v2go - 🇯🇵 JP - TROJAN - 669"
+    type: trojan
+    server: in-oriole.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: in-oriole.rooster465.autos
+  - name: "v2go - TROJAN - 670"
+    type: trojan
+    server: 104.18.32.47
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.gossipglove.com
+  - name: "v2go - TROJAN - 671"
     type: trojan
     server: 104.18.7.147
     port: 443
@@ -1075,15 +1017,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 695"
-    type: trojan
-    server: 104.19.64.105
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 696"
+  - name: "v2go - TROJAN - 672"
     type: trojan
     server: 104.18.32.37
     port: 443
@@ -1091,7 +1025,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 697"
+  - name: "v2go - TROJAN - 673"
     type: trojan
     server: 104.26.14.137
     port: 443
@@ -1099,15 +1033,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 698"
+  - name: "v2go - TROJAN - 674"
     type: trojan
-    server: 141.101.90.101
+    server: 104.19.64.105
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 699"
+    servername: www.calmlunch.com
+  - name: "v2go - TROJAN - 675"
     type: trojan
     server: 104.18.8.83
     port: 443
@@ -1115,7 +1049,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 700"
+  - name: "v2go - TROJAN - 676"
+    type: trojan
+    server: 141.101.90.101
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 677"
     type: trojan
     server: 172.64.147.227
     port: 443
@@ -1123,7 +1065,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 701"
+  - name: "v2go - TROJAN - 678"
     type: trojan
     server: 172.64.147.24
     port: 443
@@ -1131,15 +1073,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 702"
-    type: trojan
-    server: 172.64.152.23
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 703"
+  - name: "v2go - TROJAN - 679"
     type: trojan
     server: 104.18.12.149
     port: 443
@@ -1147,14 +1081,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - 🇩🇪 DE - TROJAN - 704"
-    type: trojan
-    server: enabling-asp.rooster465.autos
-    port: 443
-    password: "XG59623478"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - TROJAN - 705"
+  - name: "v2go - TROJAN - 680"
     type: trojan
     server: 104.19.229.21
     port: 443
@@ -1162,7 +1089,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - TROJAN - 706"
+  - name: "v2go - TROJAN - 681"
     type: trojan
     server: 172.64.155.209
     port: 443
@@ -1170,15 +1097,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - 🇨🇭 CH - TROJAN - 707"
+  - name: "v2go - TROJAN - 682"
     type: trojan
-    server: 185.18.250.245
+    server: 172.64.152.23
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 708"
+  - name: "v2go - TROJAN - 683"
     type: trojan
     server: 172.66.47.69
     port: 443
@@ -1186,7 +1113,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 709"
+  - name: "v2go - TROJAN - 684"
+    type: trojan
+    server: 172.67.180.92
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.multiplydose.com
+  - name: "v2go - TROJAN - 685"
     type: trojan
     server: 104.21.40.34
     port: 443
@@ -1194,23 +1129,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 710"
+  - name: "v2go - 🇨🇭 CH - TROJAN - 686"
     type: trojan
-    server: 162.159.17.189
+    server: 185.18.250.245
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
-    servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 711"
-    type: trojan
-    server: 172.64.147.166
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 712"
+    servername: www.calmlunch.com
+  - name: "v2go - TROJAN - 687"
     type: trojan
     server: 104.19.208.184
     port: 443
@@ -1218,7 +1145,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 713"
+  - name: "v2go - TROJAN - 688"
+    type: trojan
+    server: 162.159.17.189
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.multiplydose.com
+  - name: "v2go - TROJAN - 689"
     type: trojan
     server: 104.19.230.21
     port: 443
@@ -1226,15 +1161,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 714"
+  - name: "v2go - TROJAN - 690"
     type: trojan
-    server: 198.62.62.23
+    server: 172.64.147.166
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
-    servername: www.calmlunch.com
-  - name: "v2go - TROJAN - 715"
+    servername: www.multiplydose.com
+  - name: "v2go - TROJAN - 691"
     type: trojan
     server: 172.66.44.211
     port: 443
@@ -1242,7 +1177,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 716"
+  - name: "v2go - TROJAN - 692"
     type: trojan
     server: 104.20.6.134
     port: 443
@@ -1250,7 +1185,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.creationlong.org
-  - name: "v2go - TROJAN - 717"
+  - name: "v2go - TROJAN - 693"
     type: trojan
     server: 188.114.96.3
     port: 443
@@ -1258,31 +1193,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 718"
+  - name: "v2go - 🇺🇸 US - TROJAN - 694"
     type: trojan
-    server: 188.114.99.0
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.gossipglove.com
-  - name: "v2go - 🇦🇹 AT - TROJAN - 719"
-    type: trojan
-    server: 212.183.88.136
+    server: 198.62.62.23
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 720"
-    type: trojan
-    server: 216.24.57.7
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - 🇨🇭 CH - TROJAN - 721"
+  - name: "v2go - 🇨🇭 CH - TROJAN - 695"
     type: trojan
     server: 185.18.250.252
     port: 443
@@ -1290,7 +1209,23 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 722"
+  - name: "v2go - TROJAN - 696"
+    type: trojan
+    server: 188.114.99.0
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.gossipglove.com
+  - name: "v2go - 🇦🇹 AT - TROJAN - 697"
+    type: trojan
+    server: 212.183.88.136
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.calmlunch.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 698"
     type: trojan
     server: 216.24.57.6
     port: 443
@@ -1298,7 +1233,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.creationlong.org
-  - name: "v2go - 🇸🇨 SC - TROJAN - 723"
+  - name: "v2go - 🇺🇸 US - TROJAN - 699"
+    type: trojan
+    server: 216.24.57.7
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - 🇸🇨 SC - TROJAN - 700"
     type: trojan
     server: 45.130.125.112
     port: 443
@@ -1306,7 +1249,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 724"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 701"
     type: trojan
     server: 45.130.125.126
     port: 443
@@ -1314,7 +1257,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 725"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 702"
     type: trojan
     server: 45.130.125.158
     port: 443
@@ -1322,7 +1265,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 726"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 703"
     type: trojan
     server: 45.130.125.160
     port: 443
@@ -1330,7 +1273,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 727"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 704"
     type: trojan
     server: 45.130.125.162
     port: 443
@@ -1338,7 +1281,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 728"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 705"
     type: trojan
     server: 45.130.125.75
     port: 443
@@ -1346,7 +1289,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 729"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 706"
+    type: trojan
+    server: 45.130.125.2
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: Www.cReaTIOnLONG.OrG
+  - name: "v2go - 🇸🇨 SC - TROJAN - 707"
     type: trojan
     server: 45.130.125.76
     port: 443
@@ -1354,7 +1305,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇩🇪 DE - TROJAN - 730"
+  - name: "v2go - TROJAN - 708"
+    type: trojan
+    server: 162.159.38.119
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.creationlong.org
+  - name: "v2go - 🇩🇪 DE - TROJAN - 709"
     type: trojan
     server: 45.80.111.7
     port: 443
@@ -1362,15 +1321,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.calmlunch.com
-  - name: "v2go - 🇫🇷 FR - TROJAN - 731"
-    type: trojan
-    server: 81.255.155.10
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.creationlong.org
-  - name: "v2go - TROJAN - 732"
+  - name: "v2go - TROJAN - 710"
     type: trojan
     server: 8.6.112.0
     port: 443
@@ -1378,7 +1329,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.multiplydose.com
-  - name: "v2go - TROJAN - 733"
+  - name: "v2go - TROJAN - 711"
     type: trojan
     server: chatgpt.com
     port: 443
@@ -1386,14 +1337,15 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.gossipglove.com
-  - name: "v2go - 🇩🇪 DE - TROJAN - 734"
+  - name: "v2go - 🇯🇵 JP - TROJAN - 712"
     type: trojan
-    server: 185.137.157.138
+    server: loyal-molly.rooster465.autos
     port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - 🇺🇸 US - TROJAN - 735"
+    servername: loyal-molly.rooster465.autos
+  - name: "v2go - 🇺🇸 US - TROJAN - 713"
     type: trojan
     server: 208.103.161.110
     port: 443
@@ -1401,22 +1353,31 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.creationlong.org
-  - name: "v2go - 🇳🇱 NL - TROJAN - 736"
+  - name: "v2go - TROJAN - 714"
     type: trojan
-    server: renewed-chigger.rooster465.autos
+    server: 188.114.98.0
     port: 443
-    password: "XG59623478"
+    password: "humanity"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - 🇯🇵 JP - TROJAN - 737"
+    servername: www.creationlong.org
+  - name: "v2go - 🇯🇵 JP - TROJAN - 715"
     type: trojan
-    server: exciting-grizzly.rooster465.autos
+    server: moved-bluegill.rooster465.autos
     port: 443
-    password: "PI36027154"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: exciting-grizzly.rooster465.autos
-  - name: "v2go - 🇺🇸 US - TROJAN - 738"
+    servername: moved-bluegill.rooster465.autos
+  - name: "v2go - 🇳🇿 NZ - TROJAN - 716"
+    type: trojan
+    server: 202.37.33.80
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.creationlong.org
+  - name: "v2go - 🇺🇸 US - TROJAN - 717"
     type: trojan
     server: 216.24.57.1
     port: 443
@@ -1424,15 +1385,55 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.creationlong.org
-  - name: "v2go - 🇦🇺 AU - TROJAN - 741"
+  - name: "v2go - 🇯🇵 JP - TROJAN - 718"
     type: trojan
-    server: big-bonefish.rooster465.autos
+    server: nearby-egret.rooster465.autos
     port: 443
-    password: "OD90375861"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: big-bonefish.rooster465.autos
-  - name: "v2go - 🇸🇬 SG - TROJAN - 742"
+    servername: nearby-egret.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 722"
+    type: trojan
+    server: rested-osprey.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: rested-osprey.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 724"
+    type: trojan
+    server: real-cardinal.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: real-cardinal.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 725"
+    type: trojan
+    server: noble-tahr.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: noble-tahr.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 729"
+    type: trojan
+    server: sacred-shepherd.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: sacred-shepherd.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 730"
+    type: trojan
+    server: settling-humpback.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: settling-humpback.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 732"
     type: trojan
     server: 43.169.18.179
     port: 443
@@ -1440,50 +1441,477 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.creationlong.org
-  - name: "v2go - 🇩🇪 DE - TROJAN - 750"
+  - name: "v2go - 🇯🇵 JP - TROJAN - 736"
     type: trojan
-    server: 185.137.157.140
+    server: 52.194.192.245
     port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    password: "PI36027154"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - 🇩🇪 DE - TROJAN - 751"
+    servername: exciting-grizzly.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 737"
     type: trojan
-    server: 185.137.157.145
+    server: shining-piranha.rooster465.autos
     port: 443
-    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - 🇦🇺 AU - TROJAN - 752"
+    servername: shining-piranha.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 746"
     type: trojan
-    server: concise-buck.rooster465.autos
+    server: star-cheetah.rooster465.autos
     port: 443
-    password: "XG59623478"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-    servername: concise-buck.rooster465.autos
-  - name: "v2go - TROJAN - 756"
+    servername: star-cheetah.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 747"
     type: trojan
-    server: www.gossipglove.com
+    server: smooth-hornet.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: smooth-hornet.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 749"
+    type: trojan
+    server: present-ram.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: present-ram.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 750"
+    type: trojan
+    server: sincere-crappie.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: sincere-crappie.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 751"
+    type: trojan
+    server: star-moray.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: star-moray.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 753"
+    type: trojan
+    server: smashing-fawn.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: smashing-fawn.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 755"
+    type: trojan
+    server: skilled-lioness.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: skilled-lioness.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 756"
+    type: trojan
+    server: wealthy-gobbler.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: wealthy-gobbler.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 759"
+    type: trojan
+    server: upright-rhino.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: upright-rhino.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 761"
+    type: trojan
+    server: united-molly.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: united-molly.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 762"
+    type: trojan
+    server: ultimate-jaguar.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: ultimate-jaguar.rooster465.autos
+  - name: "v2go - TROJAN - 765"
+    type: trojan
+    server: www.calmlunch.com
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - TROJAN - 759"
+    servername: www.calmlunch.com
+  - name: "v2go - 🇯🇵 JP - TROJAN - 766"
     type: trojan
-    server: www.creationlong.org
+    server: star-dodo.rooster465.autos
     port: 443
-    password: "humanity"
+    password: "CF68213490"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - TROJAN - 764"
+    servername: star-dodo.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 768"
+    type: trojan
+    server: summary-firefly.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: summary-firefly.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 769"
+    type: trojan
+    server: gentle-turtle.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: gentle-turtle.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 770"
+    type: trojan
+    server: welcome-monitor.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: welcome-monitor.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 771"
+    type: trojan
+    server: inviting-rabbit.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: inviting-rabbit.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 773"
+    type: trojan
+    server: arriving-koala.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: arriving-koala.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 774"
+    type: trojan
+    server: steady-prawn.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: steady-prawn.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 775"
+    type: trojan
+    server: exciting-grizzly.rooster465.autos
+    port: 443
+    password: "PI36027154"
+    udp: true
+    skip-cert-verify: true
+    servername: exciting-grizzly.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 776"
+    type: trojan
+    server: grand-grub.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: grand-grub.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 777"
+    type: trojan
+    server: direct-hawk.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: direct-hawk.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 780"
+    type: trojan
+    server: sacred-anemone.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: sacred-anemone.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 784"
+    type: trojan
+    server: ace-liger.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: ace-liger.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 785"
+    type: trojan
+    server: skilled-polliwog.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: skilled-polliwog.rooster465.autos
+  - name: "v2go - TROJAN - 787"
     type: trojan
     server: www.multiplydose.com
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
-  - name: "v2go - 🇦🇺 AU - TROJAN - 766"
+  - name: "v2go - 🇰🇷 KR - TROJAN - 795"
+    type: trojan
+    server: pure-ram.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: pure-ram.rooster465.autos
+  - name: "v2go - 🇯🇵 JP - TROJAN - 804"
+    type: trojan
+    server: thankful-mustang.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: thankful-mustang.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 814"
+    type: trojan
+    server: smooth-lark.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: smooth-lark.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 822"
+    type: trojan
+    server: star-bluejay.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: star-bluejay.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 835"
+    type: trojan
+    server: upward-yak.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: upward-yak.rooster465.autos
+  - name: "v2go - 🇩🇪 DE - TROJAN - 869"
+    type: trojan
+    server: 185.137.157.128
+    port: 443
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇰🇷 KR - TROJAN - 885"
+    type: trojan
+    server: tolerant-stag.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: tolerant-stag.rooster465.autos
+  - name: "v2go - 🇮🇪 IE - TROJAN - 887"
+    type: trojan
+    server: wired-tick.rooster465.autos
+    port: 443
+    password: "OD90375861"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇮🇪 IE - TROJAN - 888"
+    type: trojan
+    server: singular-lark.rooster465.autos
+    port: 443
+    password: "XG59623478"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇰🇷 KR - TROJAN - 889"
+    type: trojan
+    server: gentle-platypus.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: gentle-platypus.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 891"
+    type: trojan
+    server: together-impala.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: together-impala.rooster465.autos
+  - name: "v2go - 🇮🇪 IE - TROJAN - 892"
+    type: trojan
+    server: fit-calf.rooster465.autos
+    port: 443
+    password: "OD90375861"
+    udp: true
+    skip-cert-verify: true
+    servername: fit-calf.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 895"
+    type: trojan
+    server: intimate-moray.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: intimate-moray.rooster465.autos
+  - name: "v2go - 🇰🇷 KR - TROJAN - 896"
+    type: trojan
+    server: thorough-foxhound.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: thorough-foxhound.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 906"
+    type: trojan
+    server: learning-wren.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: learning-wren.rooster465.autos
+  - name: "v2go - 🇳🇱 NL - TROJAN - 911"
+    type: trojan
+    server: game-firefly.rooster465.autos
+    port: 443
+    password: "KV63147582"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇩🇪 DE - TROJAN - 925"
+    type: trojan
+    server: evolving-baboon.rooster465.autos
+    port: 443
+    password: "KV63147582"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇦🇺 AU - TROJAN - 927"
+    type: trojan
+    server: big-bonefish.rooster465.autos
+    port: 443
+    password: "OD90375861"
+    udp: true
+    skip-cert-verify: true
+    servername: big-bonefish.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 937"
+    type: trojan
+    server: moral-basilisk.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: moral-basilisk.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 939"
+    type: trojan
+    server: prime-buzzard.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: prime-buzzard.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 940"
+    type: trojan
+    server: modest-bat.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: modest-bat.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 946"
+    type: trojan
+    server: normal-macaque.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: normal-macaque.rooster465.autos
+  - name: "v2go - 🇩🇪 DE - TROJAN - 952"
+    type: trojan
+    server: together-insect.rooster465.autos
+    port: 443
+    password: "KV63147582"
+    udp: true
+    skip-cert-verify: true
+    servername: together-insect.rooster465.autos
+  - name: "v2go - TROJAN - 974"
+    type: trojan
+    server: www.gossipglove.com
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇸🇬 SG - TROJAN - 975"
+    type: trojan
+    server: powerful-troll.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: powerful-troll.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 978"
+    type: trojan
+    server: logical-koala.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: logical-koala.rooster465.autos
+  - name: "v2go - 🇸🇬 SG - TROJAN - 983"
+    type: trojan
+    server: internal-krill.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: internal-krill.rooster465.autos
+  - name: "v2go - 🇩🇪 DE - TROJAN - 986"
+    type: trojan
+    server: 185.137.157.138
+    port: 443
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇩🇪 DE - TROJAN - 987"
+    type: trojan
+    server: busy-hermit.rooster465.autos
+    port: 443
+    password: "OD90375861"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇸🇬 SG - TROJAN - 989"
+    type: trojan
+    server: musical-terrier.rooster465.autos
+    port: 443
+    password: "CF68213490"
+    udp: true
+    skip-cert-verify: true
+    servername: musical-terrier.rooster465.autos
+  - name: "v2go - 🇩🇪 DE - TROJAN - 994"
+    type: trojan
+    server: quiet-condor.rooster465.autos
+    port: 443
+    password: "NQ26071394"
+    udp: true
+    skip-cert-verify: true
+    servername: quiet-condor.rooster465.autos
+  - name: "v2go - 🇩🇪 DE - TROJAN - 998"
+    type: trojan
+    server: 185.137.157.145
+    port: 443
+    password: "dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇦🇺 AU - TROJAN - 1000"
     type: trojan
     server: stirring-dane.rooster465.autos
     port: 443
@@ -1491,205 +1919,141 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: stirring-dane.rooster465.autos
-  - name: "v2go - 🇭🇰 HK - TROJAN - 772"
-    type: trojan
-    server: growing-oyster.rooster465.autos
-    port: 443
-    password: "XG59623478"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇮🇷 IR - TROJAN - 776"
-    type: trojan
-    server: 2.144.21.112
-    port: 40443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 952"
-    type: trojan
-    server: 188.114.97.82
-    port: 443
-    password: "2f211aae-3678-47a6-b231-46304443772f"
-    udp: true
-    skip-cert-verify: true
-    servername: cdir-0203.wlfvip.com
-  - name: "v2go - 🇷🇴 RO - TROJAN - 953"
-    type: trojan
-    server: 45.85.119.0
-    port: 2053
-    password: "Go5e2nKM8U-v2rayNG_VPNN"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
-  - name: "v2go - 🇱🇺 LU - TROJAN - 955"
-    type: trojan
-    server: 188.42.88.144
-    port: 2053
-    password: "Go5e2nKM8T"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
-  - name: "v2go - 🇳🇱 NL - TROJAN - 966"
-    type: trojan
-    server: 45.95.241.101
-    port: 2083
-    password: "Go5e2nKM8P"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
-  - name: "v2go - 🇱🇺 LU - TROJAN - 967"
-    type: trojan
-    server: 188.42.88.252
-    port: 2083
-    password: "Go5e2nKM8P"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
-  - name: "v2go - 🇷🇴 RO - TROJAN - 968"
-    type: trojan
-    server: 45.85.119.179
-    port: 8443
-    password: "Go5e2nKO8U"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
-  - name: "v2go - 🇷🇴 RO - TROJAN - 969"
-    type: trojan
-    server: 45.85.119.179
-    port: 2087
-    password: "Go5e2nJM8U"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
-  - name: "v2go - 🇱🇺 LU - TROJAN - 970"
-    type: trojan
-    server: 188.42.88.252
-    port: 2087
-    password: "Go5e2nKM9U"
-    udp: true
-    skip-cert-verify: true
-    servername: aa.v2jey.fun
 
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ⚡ 自动测速
-      - "v2go - TROJAN - 1"
-      - "v2go - TROJAN - 2"
       - "v2go - TROJAN - 4"
-      - "v2go - TROJAN - 6"
+      - "v2go - 🇺🇸 US - TROJAN - 5"
+      - "v2go - 🇺🇸 US - TROJAN - 9"
+      - "v2go - 🇫🇷 FR - TROJAN - 11"
+      - "v2go - TROJAN - 12"
+      - "v2go - 🇺🇸 US - TROJAN - 13"
+      - "v2go - 🇺🇸 US - TROJAN - 14"
       - "v2go - 🇺🇸 US - TROJAN - 16"
-      - "v2go - TROJAN - 19"
-      - "v2go - TROJAN - 23"
-      - "v2go - 🇺🇸 US - TROJAN - 48"
-      - "v2go - TROJAN - 50"
-      - "v2go - TROJAN - 55"
-      - "v2go - 🇳🇱 NL - TROJAN - 117"
-      - "v2go - 🇺🇸 US - TROJAN - 118"
-      - "v2go - 🇺🇸 US - TROJAN - 132"
-      - "v2go - 🇮🇹 IT - TROJAN - 138"
-      - "v2go - 🇪🇸 ES - TROJAN - 140"
-      - "v2go - 🇩🇪 DE - TROJAN - 143"
-      - "v2go - 🇩🇪 DE - TROJAN - 144"
-      - "v2go - 🇮🇹 IT - TROJAN - 146"
-      - "v2go - 🇩🇪 DE - TROJAN - 149"
-      - "v2go - 🇩🇪 DE - TROJAN - 150"
-      - "v2go - 🇩🇪 DE - TROJAN - 152"
-      - "v2go - 🇩🇪 DE - TROJAN - 153"
-      - "v2go - 🇦🇹 AT - TROJAN - 160"
+      - "v2go - 🇺🇸 US - TROJAN - 19"
+      - "v2go - TROJAN - 21"
+      - "v2go - 🇮🇳 IN - TROJAN - 22"
+      - "v2go - 🇺🇸 US - TROJAN - 27"
+      - "v2go - TROJAN - 29"
+      - "v2go - TROJAN - 30"
+      - "v2go - TROJAN - 31"
+      - "v2go - TROJAN - 32"
+      - "v2go - TROJAN - 34"
+      - "v2go - TROJAN - 104"
+      - "v2go - 🇯🇵 JP - TROJAN - 130"
+      - "v2go - 🇯🇵 JP - TROJAN - 131"
+      - "v2go - 🇮🇪 IE - TROJAN - 133"
+      - "v2go - 🇰🇷 KR - TROJAN - 134"
+      - "v2go - 🇰🇷 KR - TROJAN - 135"
+      - "v2go - 🇰🇷 KR - TROJAN - 136"
+      - "v2go - 🇹🇼 TW - TROJAN - 142"
+      - "v2go - 🇺🇸 US - TROJAN - 146"
+      - "v2go - 🇩🇪 DE - TROJAN - 155"
+      - "v2go - 🇳🇱 NL - TROJAN - 162"
+      - "v2go - 🇭🇰 HK - TROJAN - 163"
+      - "v2go - 🇭🇰 HK - TROJAN - 164"
+      - "v2go - 🇭🇰 HK - TROJAN - 165"
+      - "v2go - 🇩🇪 DE - TROJAN - 167"
+      - "v2go - 🇦🇹 AT - TROJAN - 168"
+      - "v2go - 🇪🇸 ES - TROJAN - 171"
+      - "v2go - 🇩🇪 DE - TROJAN - 174"
+      - "v2go - 🇩🇪 DE - TROJAN - 176"
+      - "v2go - 🇮🇹 IT - TROJAN - 180"
+      - "v2go - 🇮🇹 IT - TROJAN - 183"
       - "v2go - 🇮🇪 IE - TROJAN - 187"
-      - "v2go - TROJAN - 208"
-      - "v2go - 🇰🇷 KR - TROJAN - 233"
-      - "v2go - 🇰🇷 KR - TROJAN - 234"
-      - "v2go - 🇰🇷 KR - TROJAN - 235"
-      - "v2go - 🇭🇰 HK - TROJAN - 250"
-      - "v2go - 🇭🇰 HK - TROJAN - 254"
-      - "v2go - 🇭🇰 HK - TROJAN - 255"
-      - "v2go - 🇭🇰 HK - TROJAN - 257"
-      - "v2go - 🇵🇰 PK - TROJAN - 265"
-      - "v2go - 🇫🇷 FR - TROJAN - 272"
-      - "v2go - 🇺🇸 US - TROJAN - 287"
-      - "v2go - 🇦🇺 AU - TROJAN - 291"
-      - "v2go - TROJAN - 329"
-      - "v2go - TROJAN - 335"
-      - "v2go - TROJAN - 347"
-      - "v2go - 🇵🇱 PL - TROJAN - 350"
-      - "v2go - TROJAN - 380"
-      - "v2go - 🇮🇪 IE - TROJAN - 390"
-      - "v2go - 🇯🇵 JP - TROJAN - 395"
-      - "v2go - TROJAN - 550"
-      - "v2go - TROJAN - 551"
-      - "v2go - 🇺🇸 US - TROJAN - 552"
-      - "v2go - TROJAN - 553"
-      - "v2go - 🇺🇸 US - TROJAN - 554"
-      - "v2go - TROJAN - 555"
-      - "v2go - 🇸🇨 SC - TROJAN - 556"
-      - "v2go - TROJAN - 557"
-      - "v2go - 🇳🇿 NZ - TROJAN - 558"
-      - "v2go - TROJAN - 559"
-      - "v2go - 🇱🇹 LT - TROJAN - 560"
-      - "v2go - TROJAN - 561"
-      - "v2go - 🇺🇸 US - TROJAN - 564"
-      - "v2go - TROJAN - 571"
-      - "v2go - TROJAN - 575"
-      - "v2go - 🇯🇵 JP - TROJAN - 608"
-      - "v2go - 🇸🇬 SG - TROJAN - 616"
-      - "v2go - 🇸🇬 SG - TROJAN - 617"
-      - "v2go - 🇸🇬 SG - TROJAN - 618"
-      - "v2go - 🇸🇬 SG - TROJAN - 619"
-      - "v2go - 🇸🇬 SG - TROJAN - 620"
-      - "v2go - 🇸🇬 SG - TROJAN - 621"
-      - "v2go - 🇯🇵 JP - TROJAN - 625"
+      - "v2go - TROJAN - 221"
+      - "v2go - 🇵🇰 PK - TROJAN - 312"
+      - "v2go - 🇺🇸 US - TROJAN - 319"
+      - "v2go - TROJAN - 408"
+      - "v2go - 🇦🇺 AU - TROJAN - 423"
+      - "v2go - 🇺🇸 US - TROJAN - 439"
+      - "v2go - TROJAN - 447"
+      - "v2go - TROJAN - 453"
+      - "v2go - TROJAN - 467"
+      - "v2go - 🇩🇪 DE - TROJAN - 587"
+      - "v2go - 🇺🇸 US - TROJAN - 588"
+      - "v2go - 🇩🇪 DE - TROJAN - 590"
+      - "v2go - 🇯🇵 JP - TROJAN - 596"
+      - "v2go - 🇯🇵 JP - TROJAN - 597"
+      - "v2go - 🇸🇬 SG - TROJAN - 598"
+      - "v2go - 🇯🇵 JP - TROJAN - 599"
+      - "v2go - 🇰🇷 KR - TROJAN - 600"
+      - "v2go - 🇯🇵 JP - TROJAN - 601"
+      - "v2go - 🇯🇵 JP - TROJAN - 602"
+      - "v2go - 🇯🇵 JP - TROJAN - 603"
+      - "v2go - 🇯🇵 JP - TROJAN - 604"
+      - "v2go - 🇰🇷 KR - TROJAN - 605"
+      - "v2go - 🇸🇬 SG - TROJAN - 606"
+      - "v2go - 🇰🇷 KR - TROJAN - 607"
+      - "v2go - 🇰🇷 KR - TROJAN - 609"
+      - "v2go - 🇯🇵 JP - TROJAN - 610"
+      - "v2go - 🇸🇬 SG - TROJAN - 611"
+      - "v2go - 🇯🇵 JP - TROJAN - 612"
+      - "v2go - 🇰🇷 KR - TROJAN - 613"
+      - "v2go - 🇰🇷 KR - TROJAN - 614"
+      - "v2go - 🇰🇷 KR - TROJAN - 615"
+      - "v2go - 🇯🇵 JP - TROJAN - 616"
+      - "v2go - 🇯🇵 JP - TROJAN - 618"
+      - "v2go - 🇰🇷 KR - TROJAN - 619"
+      - "v2go - 🇯🇵 JP - TROJAN - 620"
+      - "v2go - 🇯🇵 JP - TROJAN - 621"
+      - "v2go - 🇯🇵 JP - TROJAN - 622"
+      - "v2go - 🇯🇵 JP - TROJAN - 623"
+      - "v2go - 🇰🇷 KR - TROJAN - 624"
+      - "v2go - 🇰🇷 KR - TROJAN - 625"
       - "v2go - 🇯🇵 JP - TROJAN - 626"
       - "v2go - 🇯🇵 JP - TROJAN - 627"
       - "v2go - 🇯🇵 JP - TROJAN - 628"
       - "v2go - 🇰🇷 KR - TROJAN - 629"
-      - "v2go - 🇰🇷 KR - TROJAN - 630"
+      - "v2go - 🇯🇵 JP - TROJAN - 630"
       - "v2go - 🇯🇵 JP - TROJAN - 631"
-      - "v2go - 🇸🇬 SG - TROJAN - 632"
-      - "v2go - 🇺🇸 US - TROJAN - 633"
-      - "v2go - 🇯🇵 JP - TROJAN - 634"
+      - "v2go - 🇰🇷 KR - TROJAN - 632"
+      - "v2go - 🇯🇵 JP - TROJAN - 633"
+      - "v2go - 🇸🇬 SG - TROJAN - 634"
       - "v2go - 🇯🇵 JP - TROJAN - 635"
       - "v2go - 🇰🇷 KR - TROJAN - 636"
-      - "v2go - 🇸🇬 SG - TROJAN - 637"
-      - "v2go - 🇯🇵 JP - TROJAN - 638"
-      - "v2go - 🇯🇵 JP - TROJAN - 639"
-      - "v2go - 🇸🇬 SG - TROJAN - 640"
-      - "v2go - 🇰🇷 KR - TROJAN - 641"
-      - "v2go - TROJAN - 642"
+      - "v2go - TROJAN - 637"
+      - "v2go - 🇰🇷 KR - TROJAN - 638"
+      - "v2go - TROJAN - 639"
+      - "v2go - 🇰🇷 KR - TROJAN - 640"
+      - "v2go - 🇯🇵 JP - TROJAN - 641"
+      - "v2go - 🇸🇬 SG - TROJAN - 642"
       - "v2go - 🇯🇵 JP - TROJAN - 643"
-      - "v2go - TROJAN - 644"
-      - "v2go - 🇸🇬 SG - TROJAN - 645"
-      - "v2go - 🇯🇵 JP - TROJAN - 646"
-      - "v2go - 🇭🇰 HK - TROJAN - 647"
-      - "v2go - 🇯🇵 JP - TROJAN - 648"
-      - "v2go - 🇩🇪 DE - TROJAN - 649"
-      - "v2go - 🇳🇱 NL - TROJAN - 650"
-      - "v2go - 🇩🇪 DE - TROJAN - 651"
-      - "v2go - 🇰🇷 KR - TROJAN - 652"
-      - "v2go - 🇵🇱 PL - TROJAN - 654"
-      - "v2go - 🇯🇵 JP - TROJAN - 655"
-      - "v2go - 🇸🇬 SG - TROJAN - 656"
+      - "v2go - 🇩🇪 DE - TROJAN - 644"
+      - "v2go - 🇺🇸 US - TROJAN - 645"
+      - "v2go - 🇸🇬 SG - TROJAN - 646"
+      - "v2go - 🇯🇵 JP - TROJAN - 647"
+      - "v2go - TROJAN - 648"
+      - "v2go - TROJAN - 649"
+      - "v2go - TROJAN - 650"
+      - "v2go - TROJAN - 651"
+      - "v2go - TROJAN - 652"
+      - "v2go - TROJAN - 653"
+      - "v2go - TROJAN - 654"
+      - "v2go - TROJAN - 655"
+      - "v2go - TROJAN - 656"
       - "v2go - 🇯🇵 JP - TROJAN - 657"
-      - "v2go - 🇯🇵 JP - TROJAN - 658"
-      - "v2go - 🇸🇬 SG - TROJAN - 660"
-      - "v2go - 🇭🇰 HK - TROJAN - 661"
-      - "v2go - 🇯🇵 JP - TROJAN - 662"
-      - "v2go - 🇯🇵 JP - TROJAN - 663"
-      - "v2go - 🇯🇵 JP - TROJAN - 664"
-      - "v2go - 🇮🇪 IE - TROJAN - 665"
-      - "v2go - 🇮🇪 IE - TROJAN - 666"
-      - "v2go - 🇰🇷 KR - TROJAN - 667"
-      - "v2go - 🇩🇪 DE - TROJAN - 668"
-      - "v2go - 🇩🇪 DE - TROJAN - 669"
-      - "v2go - 🇯🇵 JP - TROJAN - 670"
-      - "v2go - 🇸🇬 SG - TROJAN - 671"
-      - "v2go - 🇯🇵 JP - TROJAN - 672"
-      - "v2go - 🇸🇬 SG - TROJAN - 673"
+      - "v2go - TROJAN - 658"
+      - "v2go - TROJAN - 659"
+      - "v2go - TROJAN - 660"
+      - "v2go - TROJAN - 661"
+      - "v2go - TROJAN - 662"
+      - "v2go - TROJAN - 663"
+      - "v2go - TROJAN - 664"
+      - "v2go - TROJAN - 665"
+      - "v2go - 🇸🇬 SG - TROJAN - 666"
+      - "v2go - TROJAN - 667"
+      - "v2go - TROJAN - 668"
+      - "v2go - 🇯🇵 JP - TROJAN - 669"
+      - "v2go - TROJAN - 670"
+      - "v2go - TROJAN - 671"
+      - "v2go - TROJAN - 672"
+      - "v2go - TROJAN - 673"
       - "v2go - TROJAN - 674"
-      - "v2go - 🇩🇪 DE - TROJAN - 675"
+      - "v2go - TROJAN - 675"
       - "v2go - TROJAN - 676"
       - "v2go - TROJAN - 677"
       - "v2go - TROJAN - 678"
@@ -1700,198 +2064,241 @@ proxy-groups:
       - "v2go - TROJAN - 683"
       - "v2go - TROJAN - 684"
       - "v2go - TROJAN - 685"
-      - "v2go - TROJAN - 686"
-      - "v2go - 🇰🇷 KR - TROJAN - 687"
+      - "v2go - 🇨🇭 CH - TROJAN - 686"
+      - "v2go - TROJAN - 687"
       - "v2go - TROJAN - 688"
       - "v2go - TROJAN - 689"
       - "v2go - TROJAN - 690"
       - "v2go - TROJAN - 691"
       - "v2go - TROJAN - 692"
       - "v2go - TROJAN - 693"
-      - "v2go - TROJAN - 694"
-      - "v2go - TROJAN - 695"
+      - "v2go - 🇺🇸 US - TROJAN - 694"
+      - "v2go - 🇨🇭 CH - TROJAN - 695"
       - "v2go - TROJAN - 696"
-      - "v2go - TROJAN - 697"
-      - "v2go - TROJAN - 698"
-      - "v2go - TROJAN - 699"
-      - "v2go - TROJAN - 700"
-      - "v2go - TROJAN - 701"
-      - "v2go - TROJAN - 702"
-      - "v2go - TROJAN - 703"
-      - "v2go - 🇩🇪 DE - TROJAN - 704"
-      - "v2go - TROJAN - 705"
-      - "v2go - TROJAN - 706"
-      - "v2go - 🇨🇭 CH - TROJAN - 707"
+      - "v2go - 🇦🇹 AT - TROJAN - 697"
+      - "v2go - 🇺🇸 US - TROJAN - 698"
+      - "v2go - 🇺🇸 US - TROJAN - 699"
+      - "v2go - 🇸🇨 SC - TROJAN - 700"
+      - "v2go - 🇸🇨 SC - TROJAN - 701"
+      - "v2go - 🇸🇨 SC - TROJAN - 702"
+      - "v2go - 🇸🇨 SC - TROJAN - 703"
+      - "v2go - 🇸🇨 SC - TROJAN - 704"
+      - "v2go - 🇸🇨 SC - TROJAN - 705"
+      - "v2go - 🇸🇨 SC - TROJAN - 706"
+      - "v2go - 🇸🇨 SC - TROJAN - 707"
       - "v2go - TROJAN - 708"
-      - "v2go - TROJAN - 709"
+      - "v2go - 🇩🇪 DE - TROJAN - 709"
       - "v2go - TROJAN - 710"
       - "v2go - TROJAN - 711"
-      - "v2go - TROJAN - 712"
-      - "v2go - TROJAN - 713"
-      - "v2go - 🇺🇸 US - TROJAN - 714"
-      - "v2go - TROJAN - 715"
-      - "v2go - TROJAN - 716"
-      - "v2go - TROJAN - 717"
-      - "v2go - TROJAN - 718"
-      - "v2go - 🇦🇹 AT - TROJAN - 719"
-      - "v2go - 🇺🇸 US - TROJAN - 720"
-      - "v2go - 🇨🇭 CH - TROJAN - 721"
-      - "v2go - 🇺🇸 US - TROJAN - 722"
-      - "v2go - 🇸🇨 SC - TROJAN - 723"
-      - "v2go - 🇸🇨 SC - TROJAN - 724"
-      - "v2go - 🇸🇨 SC - TROJAN - 725"
-      - "v2go - 🇸🇨 SC - TROJAN - 726"
-      - "v2go - 🇸🇨 SC - TROJAN - 727"
-      - "v2go - 🇸🇨 SC - TROJAN - 728"
-      - "v2go - 🇸🇨 SC - TROJAN - 729"
-      - "v2go - 🇩🇪 DE - TROJAN - 730"
-      - "v2go - 🇫🇷 FR - TROJAN - 731"
-      - "v2go - TROJAN - 732"
-      - "v2go - TROJAN - 733"
-      - "v2go - 🇩🇪 DE - TROJAN - 734"
-      - "v2go - 🇺🇸 US - TROJAN - 735"
-      - "v2go - 🇳🇱 NL - TROJAN - 736"
+      - "v2go - 🇯🇵 JP - TROJAN - 712"
+      - "v2go - 🇺🇸 US - TROJAN - 713"
+      - "v2go - TROJAN - 714"
+      - "v2go - 🇯🇵 JP - TROJAN - 715"
+      - "v2go - 🇳🇿 NZ - TROJAN - 716"
+      - "v2go - 🇺🇸 US - TROJAN - 717"
+      - "v2go - 🇯🇵 JP - TROJAN - 718"
+      - "v2go - 🇯🇵 JP - TROJAN - 722"
+      - "v2go - 🇯🇵 JP - TROJAN - 724"
+      - "v2go - 🇯🇵 JP - TROJAN - 725"
+      - "v2go - 🇯🇵 JP - TROJAN - 729"
+      - "v2go - 🇯🇵 JP - TROJAN - 730"
+      - "v2go - 🇸🇬 SG - TROJAN - 732"
+      - "v2go - 🇯🇵 JP - TROJAN - 736"
       - "v2go - 🇯🇵 JP - TROJAN - 737"
-      - "v2go - 🇺🇸 US - TROJAN - 738"
-      - "v2go - 🇦🇺 AU - TROJAN - 741"
-      - "v2go - 🇸🇬 SG - TROJAN - 742"
-      - "v2go - 🇩🇪 DE - TROJAN - 750"
-      - "v2go - 🇩🇪 DE - TROJAN - 751"
-      - "v2go - 🇦🇺 AU - TROJAN - 752"
-      - "v2go - TROJAN - 756"
-      - "v2go - TROJAN - 759"
-      - "v2go - TROJAN - 764"
-      - "v2go - 🇦🇺 AU - TROJAN - 766"
-      - "v2go - 🇭🇰 HK - TROJAN - 772"
-      - "v2go - 🇮🇷 IR - TROJAN - 776"
-      - "v2go - TROJAN - 952"
-      - "v2go - 🇷🇴 RO - TROJAN - 953"
-      - "v2go - 🇱🇺 LU - TROJAN - 955"
-      - "v2go - 🇳🇱 NL - TROJAN - 966"
-      - "v2go - 🇱🇺 LU - TROJAN - 967"
-      - "v2go - 🇷🇴 RO - TROJAN - 968"
-      - "v2go - 🇷🇴 RO - TROJAN - 969"
-      - "v2go - 🇱🇺 LU - TROJAN - 970"
+      - "v2go - 🇯🇵 JP - TROJAN - 746"
+      - "v2go - 🇯🇵 JP - TROJAN - 747"
+      - "v2go - 🇯🇵 JP - TROJAN - 749"
+      - "v2go - 🇯🇵 JP - TROJAN - 750"
+      - "v2go - 🇯🇵 JP - TROJAN - 751"
+      - "v2go - 🇯🇵 JP - TROJAN - 753"
+      - "v2go - 🇯🇵 JP - TROJAN - 755"
+      - "v2go - 🇯🇵 JP - TROJAN - 756"
+      - "v2go - 🇯🇵 JP - TROJAN - 759"
+      - "v2go - 🇯🇵 JP - TROJAN - 761"
+      - "v2go - 🇯🇵 JP - TROJAN - 762"
+      - "v2go - TROJAN - 765"
+      - "v2go - 🇯🇵 JP - TROJAN - 766"
+      - "v2go - 🇯🇵 JP - TROJAN - 768"
+      - "v2go - 🇯🇵 JP - TROJAN - 769"
+      - "v2go - 🇯🇵 JP - TROJAN - 770"
+      - "v2go - 🇯🇵 JP - TROJAN - 771"
+      - "v2go - 🇯🇵 JP - TROJAN - 773"
+      - "v2go - 🇯🇵 JP - TROJAN - 774"
+      - "v2go - 🇯🇵 JP - TROJAN - 775"
+      - "v2go - 🇯🇵 JP - TROJAN - 776"
+      - "v2go - 🇯🇵 JP - TROJAN - 777"
+      - "v2go - 🇯🇵 JP - TROJAN - 780"
+      - "v2go - 🇯🇵 JP - TROJAN - 784"
+      - "v2go - 🇯🇵 JP - TROJAN - 785"
+      - "v2go - TROJAN - 787"
+      - "v2go - 🇰🇷 KR - TROJAN - 795"
+      - "v2go - 🇯🇵 JP - TROJAN - 804"
+      - "v2go - 🇰🇷 KR - TROJAN - 814"
+      - "v2go - 🇰🇷 KR - TROJAN - 822"
+      - "v2go - 🇰🇷 KR - TROJAN - 835"
+      - "v2go - 🇩🇪 DE - TROJAN - 869"
+      - "v2go - 🇰🇷 KR - TROJAN - 885"
+      - "v2go - 🇮🇪 IE - TROJAN - 887"
+      - "v2go - 🇮🇪 IE - TROJAN - 888"
+      - "v2go - 🇰🇷 KR - TROJAN - 889"
+      - "v2go - 🇰🇷 KR - TROJAN - 891"
+      - "v2go - 🇮🇪 IE - TROJAN - 892"
+      - "v2go - 🇸🇬 SG - TROJAN - 895"
+      - "v2go - 🇰🇷 KR - TROJAN - 896"
+      - "v2go - 🇸🇬 SG - TROJAN - 906"
+      - "v2go - 🇳🇱 NL - TROJAN - 911"
+      - "v2go - 🇩🇪 DE - TROJAN - 925"
+      - "v2go - 🇦🇺 AU - TROJAN - 927"
+      - "v2go - 🇸🇬 SG - TROJAN - 937"
+      - "v2go - 🇸🇬 SG - TROJAN - 939"
+      - "v2go - 🇸🇬 SG - TROJAN - 940"
+      - "v2go - 🇸🇬 SG - TROJAN - 946"
+      - "v2go - 🇩🇪 DE - TROJAN - 952"
+      - "v2go - TROJAN - 974"
+      - "v2go - 🇸🇬 SG - TROJAN - 975"
+      - "v2go - 🇸🇬 SG - TROJAN - 978"
+      - "v2go - 🇸🇬 SG - TROJAN - 983"
+      - "v2go - 🇩🇪 DE - TROJAN - 986"
+      - "v2go - 🇩🇪 DE - TROJAN - 987"
+      - "v2go - 🇸🇬 SG - TROJAN - 989"
+      - "v2go - 🇩🇪 DE - TROJAN - 994"
+      - "v2go - 🇩🇪 DE - TROJAN - 998"
+      - "v2go - 🇦🇺 AU - TROJAN - 1000"
   - name: ⚡ 自动测速
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - "v2go - TROJAN - 1"
-      - "v2go - TROJAN - 2"
       - "v2go - TROJAN - 4"
-      - "v2go - TROJAN - 6"
+      - "v2go - 🇺🇸 US - TROJAN - 5"
+      - "v2go - 🇺🇸 US - TROJAN - 9"
+      - "v2go - 🇫🇷 FR - TROJAN - 11"
+      - "v2go - TROJAN - 12"
+      - "v2go - 🇺🇸 US - TROJAN - 13"
+      - "v2go - 🇺🇸 US - TROJAN - 14"
       - "v2go - 🇺🇸 US - TROJAN - 16"
-      - "v2go - TROJAN - 19"
-      - "v2go - TROJAN - 23"
-      - "v2go - 🇺🇸 US - TROJAN - 48"
-      - "v2go - TROJAN - 50"
-      - "v2go - TROJAN - 55"
-      - "v2go - 🇳🇱 NL - TROJAN - 117"
-      - "v2go - 🇺🇸 US - TROJAN - 118"
-      - "v2go - 🇺🇸 US - TROJAN - 132"
-      - "v2go - 🇮🇹 IT - TROJAN - 138"
-      - "v2go - 🇪🇸 ES - TROJAN - 140"
-      - "v2go - 🇩🇪 DE - TROJAN - 143"
-      - "v2go - 🇩🇪 DE - TROJAN - 144"
-      - "v2go - 🇮🇹 IT - TROJAN - 146"
-      - "v2go - 🇩🇪 DE - TROJAN - 149"
-      - "v2go - 🇩🇪 DE - TROJAN - 150"
-      - "v2go - 🇩🇪 DE - TROJAN - 152"
-      - "v2go - 🇩🇪 DE - TROJAN - 153"
-      - "v2go - 🇦🇹 AT - TROJAN - 160"
+      - "v2go - 🇺🇸 US - TROJAN - 19"
+      - "v2go - TROJAN - 21"
+      - "v2go - 🇮🇳 IN - TROJAN - 22"
+      - "v2go - 🇺🇸 US - TROJAN - 27"
+      - "v2go - TROJAN - 29"
+      - "v2go - TROJAN - 30"
+      - "v2go - TROJAN - 31"
+      - "v2go - TROJAN - 32"
+      - "v2go - TROJAN - 34"
+      - "v2go - TROJAN - 104"
+      - "v2go - 🇯🇵 JP - TROJAN - 130"
+      - "v2go - 🇯🇵 JP - TROJAN - 131"
+      - "v2go - 🇮🇪 IE - TROJAN - 133"
+      - "v2go - 🇰🇷 KR - TROJAN - 134"
+      - "v2go - 🇰🇷 KR - TROJAN - 135"
+      - "v2go - 🇰🇷 KR - TROJAN - 136"
+      - "v2go - 🇹🇼 TW - TROJAN - 142"
+      - "v2go - 🇺🇸 US - TROJAN - 146"
+      - "v2go - 🇩🇪 DE - TROJAN - 155"
+      - "v2go - 🇳🇱 NL - TROJAN - 162"
+      - "v2go - 🇭🇰 HK - TROJAN - 163"
+      - "v2go - 🇭🇰 HK - TROJAN - 164"
+      - "v2go - 🇭🇰 HK - TROJAN - 165"
+      - "v2go - 🇩🇪 DE - TROJAN - 167"
+      - "v2go - 🇦🇹 AT - TROJAN - 168"
+      - "v2go - 🇪🇸 ES - TROJAN - 171"
+      - "v2go - 🇩🇪 DE - TROJAN - 174"
+      - "v2go - 🇩🇪 DE - TROJAN - 176"
+      - "v2go - 🇮🇹 IT - TROJAN - 180"
+      - "v2go - 🇮🇹 IT - TROJAN - 183"
       - "v2go - 🇮🇪 IE - TROJAN - 187"
-      - "v2go - TROJAN - 208"
-      - "v2go - 🇰🇷 KR - TROJAN - 233"
-      - "v2go - 🇰🇷 KR - TROJAN - 234"
-      - "v2go - 🇰🇷 KR - TROJAN - 235"
-      - "v2go - 🇭🇰 HK - TROJAN - 250"
-      - "v2go - 🇭🇰 HK - TROJAN - 254"
-      - "v2go - 🇭🇰 HK - TROJAN - 255"
-      - "v2go - 🇭🇰 HK - TROJAN - 257"
-      - "v2go - 🇵🇰 PK - TROJAN - 265"
-      - "v2go - 🇫🇷 FR - TROJAN - 272"
-      - "v2go - 🇺🇸 US - TROJAN - 287"
-      - "v2go - 🇦🇺 AU - TROJAN - 291"
-      - "v2go - TROJAN - 329"
-      - "v2go - TROJAN - 335"
-      - "v2go - TROJAN - 347"
-      - "v2go - 🇵🇱 PL - TROJAN - 350"
-      - "v2go - TROJAN - 380"
-      - "v2go - 🇮🇪 IE - TROJAN - 390"
-      - "v2go - 🇯🇵 JP - TROJAN - 395"
-      - "v2go - TROJAN - 550"
-      - "v2go - TROJAN - 551"
-      - "v2go - 🇺🇸 US - TROJAN - 552"
-      - "v2go - TROJAN - 553"
-      - "v2go - 🇺🇸 US - TROJAN - 554"
-      - "v2go - TROJAN - 555"
-      - "v2go - 🇸🇨 SC - TROJAN - 556"
-      - "v2go - TROJAN - 557"
-      - "v2go - 🇳🇿 NZ - TROJAN - 558"
-      - "v2go - TROJAN - 559"
-      - "v2go - 🇱🇹 LT - TROJAN - 560"
-      - "v2go - TROJAN - 561"
-      - "v2go - 🇺🇸 US - TROJAN - 564"
-      - "v2go - TROJAN - 571"
-      - "v2go - TROJAN - 575"
-      - "v2go - 🇯🇵 JP - TROJAN - 608"
-      - "v2go - 🇸🇬 SG - TROJAN - 616"
-      - "v2go - 🇸🇬 SG - TROJAN - 617"
-      - "v2go - 🇸🇬 SG - TROJAN - 618"
-      - "v2go - 🇸🇬 SG - TROJAN - 619"
-      - "v2go - 🇸🇬 SG - TROJAN - 620"
-      - "v2go - 🇸🇬 SG - TROJAN - 621"
-      - "v2go - 🇯🇵 JP - TROJAN - 625"
+      - "v2go - TROJAN - 221"
+      - "v2go - 🇵🇰 PK - TROJAN - 312"
+      - "v2go - 🇺🇸 US - TROJAN - 319"
+      - "v2go - TROJAN - 408"
+      - "v2go - 🇦🇺 AU - TROJAN - 423"
+      - "v2go - 🇺🇸 US - TROJAN - 439"
+      - "v2go - TROJAN - 447"
+      - "v2go - TROJAN - 453"
+      - "v2go - TROJAN - 467"
+      - "v2go - 🇩🇪 DE - TROJAN - 587"
+      - "v2go - 🇺🇸 US - TROJAN - 588"
+      - "v2go - 🇩🇪 DE - TROJAN - 590"
+      - "v2go - 🇯🇵 JP - TROJAN - 596"
+      - "v2go - 🇯🇵 JP - TROJAN - 597"
+      - "v2go - 🇸🇬 SG - TROJAN - 598"
+      - "v2go - 🇯🇵 JP - TROJAN - 599"
+      - "v2go - 🇰🇷 KR - TROJAN - 600"
+      - "v2go - 🇯🇵 JP - TROJAN - 601"
+      - "v2go - 🇯🇵 JP - TROJAN - 602"
+      - "v2go - 🇯🇵 JP - TROJAN - 603"
+      - "v2go - 🇯🇵 JP - TROJAN - 604"
+      - "v2go - 🇰🇷 KR - TROJAN - 605"
+      - "v2go - 🇸🇬 SG - TROJAN - 606"
+      - "v2go - 🇰🇷 KR - TROJAN - 607"
+      - "v2go - 🇰🇷 KR - TROJAN - 609"
+      - "v2go - 🇯🇵 JP - TROJAN - 610"
+      - "v2go - 🇸🇬 SG - TROJAN - 611"
+      - "v2go - 🇯🇵 JP - TROJAN - 612"
+      - "v2go - 🇰🇷 KR - TROJAN - 613"
+      - "v2go - 🇰🇷 KR - TROJAN - 614"
+      - "v2go - 🇰🇷 KR - TROJAN - 615"
+      - "v2go - 🇯🇵 JP - TROJAN - 616"
+      - "v2go - 🇯🇵 JP - TROJAN - 618"
+      - "v2go - 🇰🇷 KR - TROJAN - 619"
+      - "v2go - 🇯🇵 JP - TROJAN - 620"
+      - "v2go - 🇯🇵 JP - TROJAN - 621"
+      - "v2go - 🇯🇵 JP - TROJAN - 622"
+      - "v2go - 🇯🇵 JP - TROJAN - 623"
+      - "v2go - 🇰🇷 KR - TROJAN - 624"
+      - "v2go - 🇰🇷 KR - TROJAN - 625"
       - "v2go - 🇯🇵 JP - TROJAN - 626"
       - "v2go - 🇯🇵 JP - TROJAN - 627"
       - "v2go - 🇯🇵 JP - TROJAN - 628"
       - "v2go - 🇰🇷 KR - TROJAN - 629"
-      - "v2go - 🇰🇷 KR - TROJAN - 630"
+      - "v2go - 🇯🇵 JP - TROJAN - 630"
       - "v2go - 🇯🇵 JP - TROJAN - 631"
-      - "v2go - 🇸🇬 SG - TROJAN - 632"
-      - "v2go - 🇺🇸 US - TROJAN - 633"
-      - "v2go - 🇯🇵 JP - TROJAN - 634"
+      - "v2go - 🇰🇷 KR - TROJAN - 632"
+      - "v2go - 🇯🇵 JP - TROJAN - 633"
+      - "v2go - 🇸🇬 SG - TROJAN - 634"
       - "v2go - 🇯🇵 JP - TROJAN - 635"
       - "v2go - 🇰🇷 KR - TROJAN - 636"
-      - "v2go - 🇸🇬 SG - TROJAN - 637"
-      - "v2go - 🇯🇵 JP - TROJAN - 638"
-      - "v2go - 🇯🇵 JP - TROJAN - 639"
-      - "v2go - 🇸🇬 SG - TROJAN - 640"
-      - "v2go - 🇰🇷 KR - TROJAN - 641"
-      - "v2go - TROJAN - 642"
+      - "v2go - TROJAN - 637"
+      - "v2go - 🇰🇷 KR - TROJAN - 638"
+      - "v2go - TROJAN - 639"
+      - "v2go - 🇰🇷 KR - TROJAN - 640"
+      - "v2go - 🇯🇵 JP - TROJAN - 641"
+      - "v2go - 🇸🇬 SG - TROJAN - 642"
       - "v2go - 🇯🇵 JP - TROJAN - 643"
-      - "v2go - TROJAN - 644"
-      - "v2go - 🇸🇬 SG - TROJAN - 645"
-      - "v2go - 🇯🇵 JP - TROJAN - 646"
-      - "v2go - 🇭🇰 HK - TROJAN - 647"
-      - "v2go - 🇯🇵 JP - TROJAN - 648"
-      - "v2go - 🇩🇪 DE - TROJAN - 649"
-      - "v2go - 🇳🇱 NL - TROJAN - 650"
-      - "v2go - 🇩🇪 DE - TROJAN - 651"
-      - "v2go - 🇰🇷 KR - TROJAN - 652"
-      - "v2go - 🇵🇱 PL - TROJAN - 654"
-      - "v2go - 🇯🇵 JP - TROJAN - 655"
-      - "v2go - 🇸🇬 SG - TROJAN - 656"
+      - "v2go - 🇩🇪 DE - TROJAN - 644"
+      - "v2go - 🇺🇸 US - TROJAN - 645"
+      - "v2go - 🇸🇬 SG - TROJAN - 646"
+      - "v2go - 🇯🇵 JP - TROJAN - 647"
+      - "v2go - TROJAN - 648"
+      - "v2go - TROJAN - 649"
+      - "v2go - TROJAN - 650"
+      - "v2go - TROJAN - 651"
+      - "v2go - TROJAN - 652"
+      - "v2go - TROJAN - 653"
+      - "v2go - TROJAN - 654"
+      - "v2go - TROJAN - 655"
+      - "v2go - TROJAN - 656"
       - "v2go - 🇯🇵 JP - TROJAN - 657"
-      - "v2go - 🇯🇵 JP - TROJAN - 658"
-      - "v2go - 🇸🇬 SG - TROJAN - 660"
-      - "v2go - 🇭🇰 HK - TROJAN - 661"
-      - "v2go - 🇯🇵 JP - TROJAN - 662"
-      - "v2go - 🇯🇵 JP - TROJAN - 663"
-      - "v2go - 🇯🇵 JP - TROJAN - 664"
-      - "v2go - 🇮🇪 IE - TROJAN - 665"
-      - "v2go - 🇮🇪 IE - TROJAN - 666"
-      - "v2go - 🇰🇷 KR - TROJAN - 667"
-      - "v2go - 🇩🇪 DE - TROJAN - 668"
-      - "v2go - 🇩🇪 DE - TROJAN - 669"
-      - "v2go - 🇯🇵 JP - TROJAN - 670"
-      - "v2go - 🇸🇬 SG - TROJAN - 671"
-      - "v2go - 🇯🇵 JP - TROJAN - 672"
-      - "v2go - 🇸🇬 SG - TROJAN - 673"
+      - "v2go - TROJAN - 658"
+      - "v2go - TROJAN - 659"
+      - "v2go - TROJAN - 660"
+      - "v2go - TROJAN - 661"
+      - "v2go - TROJAN - 662"
+      - "v2go - TROJAN - 663"
+      - "v2go - TROJAN - 664"
+      - "v2go - TROJAN - 665"
+      - "v2go - 🇸🇬 SG - TROJAN - 666"
+      - "v2go - TROJAN - 667"
+      - "v2go - TROJAN - 668"
+      - "v2go - 🇯🇵 JP - TROJAN - 669"
+      - "v2go - TROJAN - 670"
+      - "v2go - TROJAN - 671"
+      - "v2go - TROJAN - 672"
+      - "v2go - TROJAN - 673"
       - "v2go - TROJAN - 674"
-      - "v2go - 🇩🇪 DE - TROJAN - 675"
+      - "v2go - TROJAN - 675"
       - "v2go - TROJAN - 676"
       - "v2go - TROJAN - 677"
       - "v2go - TROJAN - 678"
@@ -1902,78 +2309,106 @@ proxy-groups:
       - "v2go - TROJAN - 683"
       - "v2go - TROJAN - 684"
       - "v2go - TROJAN - 685"
-      - "v2go - TROJAN - 686"
-      - "v2go - 🇰🇷 KR - TROJAN - 687"
+      - "v2go - 🇨🇭 CH - TROJAN - 686"
+      - "v2go - TROJAN - 687"
       - "v2go - TROJAN - 688"
       - "v2go - TROJAN - 689"
       - "v2go - TROJAN - 690"
       - "v2go - TROJAN - 691"
       - "v2go - TROJAN - 692"
       - "v2go - TROJAN - 693"
-      - "v2go - TROJAN - 694"
-      - "v2go - TROJAN - 695"
+      - "v2go - 🇺🇸 US - TROJAN - 694"
+      - "v2go - 🇨🇭 CH - TROJAN - 695"
       - "v2go - TROJAN - 696"
-      - "v2go - TROJAN - 697"
-      - "v2go - TROJAN - 698"
-      - "v2go - TROJAN - 699"
-      - "v2go - TROJAN - 700"
-      - "v2go - TROJAN - 701"
-      - "v2go - TROJAN - 702"
-      - "v2go - TROJAN - 703"
-      - "v2go - 🇩🇪 DE - TROJAN - 704"
-      - "v2go - TROJAN - 705"
-      - "v2go - TROJAN - 706"
-      - "v2go - 🇨🇭 CH - TROJAN - 707"
+      - "v2go - 🇦🇹 AT - TROJAN - 697"
+      - "v2go - 🇺🇸 US - TROJAN - 698"
+      - "v2go - 🇺🇸 US - TROJAN - 699"
+      - "v2go - 🇸🇨 SC - TROJAN - 700"
+      - "v2go - 🇸🇨 SC - TROJAN - 701"
+      - "v2go - 🇸🇨 SC - TROJAN - 702"
+      - "v2go - 🇸🇨 SC - TROJAN - 703"
+      - "v2go - 🇸🇨 SC - TROJAN - 704"
+      - "v2go - 🇸🇨 SC - TROJAN - 705"
+      - "v2go - 🇸🇨 SC - TROJAN - 706"
+      - "v2go - 🇸🇨 SC - TROJAN - 707"
       - "v2go - TROJAN - 708"
-      - "v2go - TROJAN - 709"
+      - "v2go - 🇩🇪 DE - TROJAN - 709"
       - "v2go - TROJAN - 710"
       - "v2go - TROJAN - 711"
-      - "v2go - TROJAN - 712"
-      - "v2go - TROJAN - 713"
-      - "v2go - 🇺🇸 US - TROJAN - 714"
-      - "v2go - TROJAN - 715"
-      - "v2go - TROJAN - 716"
-      - "v2go - TROJAN - 717"
-      - "v2go - TROJAN - 718"
-      - "v2go - 🇦🇹 AT - TROJAN - 719"
-      - "v2go - 🇺🇸 US - TROJAN - 720"
-      - "v2go - 🇨🇭 CH - TROJAN - 721"
-      - "v2go - 🇺🇸 US - TROJAN - 722"
-      - "v2go - 🇸🇨 SC - TROJAN - 723"
-      - "v2go - 🇸🇨 SC - TROJAN - 724"
-      - "v2go - 🇸🇨 SC - TROJAN - 725"
-      - "v2go - 🇸🇨 SC - TROJAN - 726"
-      - "v2go - 🇸🇨 SC - TROJAN - 727"
-      - "v2go - 🇸🇨 SC - TROJAN - 728"
-      - "v2go - 🇸🇨 SC - TROJAN - 729"
-      - "v2go - 🇩🇪 DE - TROJAN - 730"
-      - "v2go - 🇫🇷 FR - TROJAN - 731"
-      - "v2go - TROJAN - 732"
-      - "v2go - TROJAN - 733"
-      - "v2go - 🇩🇪 DE - TROJAN - 734"
-      - "v2go - 🇺🇸 US - TROJAN - 735"
-      - "v2go - 🇳🇱 NL - TROJAN - 736"
+      - "v2go - 🇯🇵 JP - TROJAN - 712"
+      - "v2go - 🇺🇸 US - TROJAN - 713"
+      - "v2go - TROJAN - 714"
+      - "v2go - 🇯🇵 JP - TROJAN - 715"
+      - "v2go - 🇳🇿 NZ - TROJAN - 716"
+      - "v2go - 🇺🇸 US - TROJAN - 717"
+      - "v2go - 🇯🇵 JP - TROJAN - 718"
+      - "v2go - 🇯🇵 JP - TROJAN - 722"
+      - "v2go - 🇯🇵 JP - TROJAN - 724"
+      - "v2go - 🇯🇵 JP - TROJAN - 725"
+      - "v2go - 🇯🇵 JP - TROJAN - 729"
+      - "v2go - 🇯🇵 JP - TROJAN - 730"
+      - "v2go - 🇸🇬 SG - TROJAN - 732"
+      - "v2go - 🇯🇵 JP - TROJAN - 736"
       - "v2go - 🇯🇵 JP - TROJAN - 737"
-      - "v2go - 🇺🇸 US - TROJAN - 738"
-      - "v2go - 🇦🇺 AU - TROJAN - 741"
-      - "v2go - 🇸🇬 SG - TROJAN - 742"
-      - "v2go - 🇩🇪 DE - TROJAN - 750"
-      - "v2go - 🇩🇪 DE - TROJAN - 751"
-      - "v2go - 🇦🇺 AU - TROJAN - 752"
-      - "v2go - TROJAN - 756"
-      - "v2go - TROJAN - 759"
-      - "v2go - TROJAN - 764"
-      - "v2go - 🇦🇺 AU - TROJAN - 766"
-      - "v2go - 🇭🇰 HK - TROJAN - 772"
-      - "v2go - 🇮🇷 IR - TROJAN - 776"
-      - "v2go - TROJAN - 952"
-      - "v2go - 🇷🇴 RO - TROJAN - 953"
-      - "v2go - 🇱🇺 LU - TROJAN - 955"
-      - "v2go - 🇳🇱 NL - TROJAN - 966"
-      - "v2go - 🇱🇺 LU - TROJAN - 967"
-      - "v2go - 🇷🇴 RO - TROJAN - 968"
-      - "v2go - 🇷🇴 RO - TROJAN - 969"
-      - "v2go - 🇱🇺 LU - TROJAN - 970"
+      - "v2go - 🇯🇵 JP - TROJAN - 746"
+      - "v2go - 🇯🇵 JP - TROJAN - 747"
+      - "v2go - 🇯🇵 JP - TROJAN - 749"
+      - "v2go - 🇯🇵 JP - TROJAN - 750"
+      - "v2go - 🇯🇵 JP - TROJAN - 751"
+      - "v2go - 🇯🇵 JP - TROJAN - 753"
+      - "v2go - 🇯🇵 JP - TROJAN - 755"
+      - "v2go - 🇯🇵 JP - TROJAN - 756"
+      - "v2go - 🇯🇵 JP - TROJAN - 759"
+      - "v2go - 🇯🇵 JP - TROJAN - 761"
+      - "v2go - 🇯🇵 JP - TROJAN - 762"
+      - "v2go - TROJAN - 765"
+      - "v2go - 🇯🇵 JP - TROJAN - 766"
+      - "v2go - 🇯🇵 JP - TROJAN - 768"
+      - "v2go - 🇯🇵 JP - TROJAN - 769"
+      - "v2go - 🇯🇵 JP - TROJAN - 770"
+      - "v2go - 🇯🇵 JP - TROJAN - 771"
+      - "v2go - 🇯🇵 JP - TROJAN - 773"
+      - "v2go - 🇯🇵 JP - TROJAN - 774"
+      - "v2go - 🇯🇵 JP - TROJAN - 775"
+      - "v2go - 🇯🇵 JP - TROJAN - 776"
+      - "v2go - 🇯🇵 JP - TROJAN - 777"
+      - "v2go - 🇯🇵 JP - TROJAN - 780"
+      - "v2go - 🇯🇵 JP - TROJAN - 784"
+      - "v2go - 🇯🇵 JP - TROJAN - 785"
+      - "v2go - TROJAN - 787"
+      - "v2go - 🇰🇷 KR - TROJAN - 795"
+      - "v2go - 🇯🇵 JP - TROJAN - 804"
+      - "v2go - 🇰🇷 KR - TROJAN - 814"
+      - "v2go - 🇰🇷 KR - TROJAN - 822"
+      - "v2go - 🇰🇷 KR - TROJAN - 835"
+      - "v2go - 🇩🇪 DE - TROJAN - 869"
+      - "v2go - 🇰🇷 KR - TROJAN - 885"
+      - "v2go - 🇮🇪 IE - TROJAN - 887"
+      - "v2go - 🇮🇪 IE - TROJAN - 888"
+      - "v2go - 🇰🇷 KR - TROJAN - 889"
+      - "v2go - 🇰🇷 KR - TROJAN - 891"
+      - "v2go - 🇮🇪 IE - TROJAN - 892"
+      - "v2go - 🇸🇬 SG - TROJAN - 895"
+      - "v2go - 🇰🇷 KR - TROJAN - 896"
+      - "v2go - 🇸🇬 SG - TROJAN - 906"
+      - "v2go - 🇳🇱 NL - TROJAN - 911"
+      - "v2go - 🇩🇪 DE - TROJAN - 925"
+      - "v2go - 🇦🇺 AU - TROJAN - 927"
+      - "v2go - 🇸🇬 SG - TROJAN - 937"
+      - "v2go - 🇸🇬 SG - TROJAN - 939"
+      - "v2go - 🇸🇬 SG - TROJAN - 940"
+      - "v2go - 🇸🇬 SG - TROJAN - 946"
+      - "v2go - 🇩🇪 DE - TROJAN - 952"
+      - "v2go - TROJAN - 974"
+      - "v2go - 🇸🇬 SG - TROJAN - 975"
+      - "v2go - 🇸🇬 SG - TROJAN - 978"
+      - "v2go - 🇸🇬 SG - TROJAN - 983"
+      - "v2go - 🇩🇪 DE - TROJAN - 986"
+      - "v2go - 🇩🇪 DE - TROJAN - 987"
+      - "v2go - 🇸🇬 SG - TROJAN - 989"
+      - "v2go - 🇩🇪 DE - TROJAN - 994"
+      - "v2go - 🇩🇪 DE - TROJAN - 998"
+      - "v2go - 🇦🇺 AU - TROJAN - 1000"
 
 rules:
   - DOMAIN-SUFFIX,google.com,🚀 节点选择
