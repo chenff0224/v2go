@@ -27,55 +27,7 @@ dns:
     - https://dns.google/dns-query
 
 proxies:
-  - name: "v2go - TROJAN - 1"
-    type: trojan
-    server: 104.16.174.12
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 4"
-    type: trojan
-    server: 104.16.174.121
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 6"
-    type: trojan
-    server: 172.67.149.60
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 13"
-    type: trojan
-    server: 104.18.152.140
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 16"
-    type: trojan
-    server: 104.16.174.46
-    port: 443
-    password: "humanity"
-    udp: true
-    skip-cert-verify: true
-    servername: www.ignitelimit.com
-  - name: "v2go - 🇺🇸 US - TROJAN - 19"
-    type: trojan
-    server: 199.232.78.160
-    port: 443
-    password: "MiTiVPN"
-    udp: true
-    skip-cert-verify: true
-    servername: ssl.fastly.com
-  - name: "v2go - 🇸🇨 SC - TROJAN - 20"
+  - name: "v2go - 🇸🇨 SC - TROJAN - 6"
     type: trojan
     server: 45.130.125.158
     port: 443
@@ -83,15 +35,23 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 22"
+  - name: "v2go - TROJAN - 14"
     type: trojan
-    server: 104.18.152.210
+    server: 104.16.174.121
     port: 443
     password: "humanity"
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - TROJAN - 29"
+  - name: "v2go - TROJAN - 17"
+    type: trojan
+    server: 104.16.174.46
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 18"
     type: trojan
     server: 188.114.97.7
     port: 443
@@ -99,7 +59,47 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 20"
+    type: trojan
+    server: 104.18.152.140
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 26"
+    type: trojan
+    server: 172.67.149.60
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - TROJAN - 27"
+    type: trojan
+    server: 104.16.174.12
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
   - name: "v2go - TROJAN - 32"
+    type: trojan
+    server: 104.18.152.210
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.ignitelimit.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 38"
+    type: trojan
+    server: 199.232.78.160
+    port: 443
+    password: "MiTiVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: ssl.fastly.com
+  - name: "v2go - TROJAN - 39"
     type: trojan
     server: 104.18.152.97
     port: 443
@@ -107,7 +107,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.ignitelimit.com
-  - name: "v2go - 🇭🇷 HR - TROJAN - 100"
+  - name: "v2go - 🇭🇷 HR - TROJAN - 44"
     type: trojan
     server: 213.182.199.137
     port: 443
@@ -115,15 +115,7 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: www.pleadcourt.org
-  - name: "v2go - TROJAN - 102"
-    type: trojan
-    server: 104.18.12.229
-    port: 8443
-    password: "trojan"
-    udp: true
-    skip-cert-verify: true
-    servername: longwanghen.pages.dev
-  - name: "v2go - 🇩🇪 DE - TROJAN - 282"
+  - name: "v2go - 🇩🇪 DE - TROJAN - 137"
     type: trojan
     server: 5.249.164.28
     port: 25615
@@ -131,26 +123,11 @@ proxies:
     udp: true
     skip-cert-verify: true
     servername: op-1.firecone.eu
-  - name: "v2go - 🇫🇷 FR - TROJAN - 514"
+  - name: "v2go - 🇫🇷 FR - TROJAN - 676"
     type: trojan
     server: 194.9.172.236
     port: 1105
     password: "kakashka13222"
-    udp: true
-    skip-cert-verify: true
-  - name: "v2go - 🇯🇵 JP - TROJAN - 523"
-    type: trojan
-    server: portal.buildtunnel.com
-    port: 443
-    password: "UQfj7bdfjibTjpUHfg72aew51S7fB32g"
-    udp: true
-    skip-cert-verify: true
-    servername: portal.buildtunnel.com
-  - name: "v2go - 🇹🇷 TR - TROJAN - 837"
-    type: trojan
-    server: 34hru34f9wrui.tr.snapeurop.com
-    port: 4422
-    password: "5359fe596ea94fc89e7086c91f382ad6"
     udp: true
     skip-cert-verify: true
 
@@ -159,44 +136,38 @@ proxy-groups:
     type: select
     proxies:
       - ⚡ 自动测速
-      - "v2go - TROJAN - 1"
-      - "v2go - TROJAN - 4"
-      - "v2go - TROJAN - 6"
-      - "v2go - TROJAN - 13"
-      - "v2go - TROJAN - 16"
-      - "v2go - 🇺🇸 US - TROJAN - 19"
-      - "v2go - 🇸🇨 SC - TROJAN - 20"
-      - "v2go - TROJAN - 22"
-      - "v2go - TROJAN - 29"
+      - "v2go - 🇸🇨 SC - TROJAN - 6"
+      - "v2go - TROJAN - 14"
+      - "v2go - TROJAN - 17"
+      - "v2go - TROJAN - 18"
+      - "v2go - TROJAN - 20"
+      - "v2go - TROJAN - 26"
+      - "v2go - TROJAN - 27"
       - "v2go - TROJAN - 32"
-      - "v2go - 🇭🇷 HR - TROJAN - 100"
-      - "v2go - TROJAN - 102"
-      - "v2go - 🇩🇪 DE - TROJAN - 282"
-      - "v2go - 🇫🇷 FR - TROJAN - 514"
-      - "v2go - 🇯🇵 JP - TROJAN - 523"
-      - "v2go - 🇹🇷 TR - TROJAN - 837"
+      - "v2go - 🇺🇸 US - TROJAN - 38"
+      - "v2go - TROJAN - 39"
+      - "v2go - 🇭🇷 HR - TROJAN - 44"
+      - "v2go - 🇩🇪 DE - TROJAN - 137"
+      - "v2go - 🇫🇷 FR - TROJAN - 676"
   - name: ⚡ 自动测速
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - "v2go - TROJAN - 1"
-      - "v2go - TROJAN - 4"
-      - "v2go - TROJAN - 6"
-      - "v2go - TROJAN - 13"
-      - "v2go - TROJAN - 16"
-      - "v2go - 🇺🇸 US - TROJAN - 19"
-      - "v2go - 🇸🇨 SC - TROJAN - 20"
-      - "v2go - TROJAN - 22"
-      - "v2go - TROJAN - 29"
+      - "v2go - 🇸🇨 SC - TROJAN - 6"
+      - "v2go - TROJAN - 14"
+      - "v2go - TROJAN - 17"
+      - "v2go - TROJAN - 18"
+      - "v2go - TROJAN - 20"
+      - "v2go - TROJAN - 26"
+      - "v2go - TROJAN - 27"
       - "v2go - TROJAN - 32"
-      - "v2go - 🇭🇷 HR - TROJAN - 100"
-      - "v2go - TROJAN - 102"
-      - "v2go - 🇩🇪 DE - TROJAN - 282"
-      - "v2go - 🇫🇷 FR - TROJAN - 514"
-      - "v2go - 🇯🇵 JP - TROJAN - 523"
-      - "v2go - 🇹🇷 TR - TROJAN - 837"
+      - "v2go - 🇺🇸 US - TROJAN - 38"
+      - "v2go - TROJAN - 39"
+      - "v2go - 🇭🇷 HR - TROJAN - 44"
+      - "v2go - 🇩🇪 DE - TROJAN - 137"
+      - "v2go - 🇫🇷 FR - TROJAN - 676"
 
 rules:
   - DOMAIN-SUFFIX,google.com,🚀 节点选择
