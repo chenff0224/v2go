@@ -1,37 +1,234 @@
 port: 7890
 socks-port: 7891
+mixed-port: 7892
 allow-lan: true
 mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  bypass-lan: true
+
 dns:
   enable: true
   ipv6: false
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
   enhanced-mode: redir-host
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
+    - 114.114.114.114
+  fallback:
+    - https://dns.cloudflare.com/dns-query
+    - https://dns.google/dns-query
 
 proxies:
+  - name: "v2go - 🇺🇸 US - TROJAN - 25"
+    type: trojan
+    server: 151.101.56.9
+    port: 443
+    password: "mitivpn"
+    udp: true
+    skip-cert-verify: true
+    servername: ssl.fastly.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 26"
+    type: trojan
+    server: 199.232.78.188
+    port: 443
+    password: "mitivpn"
+    udp: true
+    skip-cert-verify: true
+    servername: ssl.fastly.com
+  - name: "v2go - 🇺🇸 US - TROJAN - 80"
+    type: trojan
+    server: 167.68.4.199
+    port: 2053
+    password: "Aimer"
+    udp: true
+    skip-cert-verify: true
+    servername: epge.muarua.filegear-sg.me
+  - name: "v2go - 🇺🇸 US - TROJAN - 82"
+    type: trojan
+    server: 199.232.78.160
+    port: 443
+    password: "MiTiVPN"
+    udp: true
+    skip-cert-verify: true
+    servername: ssl.fastly.com
+  - name: "v2go - TROJAN - 85"
+    type: trojan
+    server: 104.19.229.21
+    port: 443
+    password: "humanity"
+    udp: true
+    skip-cert-verify: true
+    servername: www.calmlunch.com
+  - name: "v2go - TROJAN - 91"
+    type: trojan
+    server: dl2uf-ivdezilz3e86rk18.hhvt37tjm2xbosql5hxogn-y.workers.dev
+    port: 443
+    password: "LcICDcp!jD9TFV$NbH"
+    udp: true
+    skip-cert-verify: true
+    servername: dl2uF-iVdeZILZ3E86rK18.Hhvt37tjm2XBOsQL5HXogN-Y.woRKERS.dEv
+  - name: "v2go - TROJAN - 97"
+    type: trojan
+    server: waysi.waysi6688.workers.dev
+    port: 2087
+    password: "eabf1999fefbb7d2"
+    udp: true
+    skip-cert-verify: true
+    servername: WaYSi.wAYsI6688.WOrkeRS.deV
+  - name: "v2go - TROJAN - 395"
+    type: trojan
+    server: 188.114.97.82
+    port: 443
+    password: "2f211aae-3678-47a6-b231-46304443772f"
+    udp: true
+    skip-cert-verify: true
+    servername: cdir-0203.wlfvip.com
+  - name: "v2go - 🇱🇺 LU - TROJAN - 400"
+    type: trojan
+    server: 188.42.88.144
+    port: 2053
+    password: "Go5e2nKM8T"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇷🇴 RO - TROJAN - 402"
+    type: trojan
+    server: 45.85.119.0
+    port: 2053
+    password: "Go5e2nKM8U-v2rayNG_VPNN"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇱🇺 LU - TROJAN - 409"
+    type: trojan
+    server: 188.42.88.252
+    port: 2083
+    password: "Go5e2nKM8P"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇳🇱 NL - TROJAN - 411"
+    type: trojan
+    server: 45.95.241.101
+    port: 2083
+    password: "Go5e2nKM8P"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇷🇴 RO - TROJAN - 413"
+    type: trojan
+    server: 45.85.119.179
+    port: 2087
+    password: "Go5e2nJM8U"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇷🇴 RO - TROJAN - 414"
+    type: trojan
+    server: 45.85.119.179
+    port: 8443
+    password: "Go5e2nKO8U"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇱🇺 LU - TROJAN - 415"
+    type: trojan
+    server: 188.42.88.252
+    port: 2087
+    password: "Go5e2nKM9U"
+    udp: true
+    skip-cert-verify: true
+    servername: aa.v2jey.fun
+  - name: "v2go - 🇺🇸 US - TROJAN - 465"
+    type: trojan
+    server: hkt.iamnotagoodman.com
+    port: 443
+    password: "fab16fff-d149-417c-bdef-4bfcf2333bbe"
+    udp: true
+    skip-cert-verify: true
+  - name: "v2go - 🇩🇪 DE - TROJAN - 467"
+    type: trojan
+    server: 165.22.30.47
+    port: 443
+    password: "ff478153-9df6-4a86-bb72-7bfc28532e45"
+    udp: true
+    skip-cert-verify: true
+    servername: soft98.ir
+  - name: "v2go - 🇦🇺 AU - TROJAN - 501"
+    type: trojan
+    server: cdir-0303.wlfvip.shop
+    port: 443
+    password: "f0b09670-9e9a-48f2-acd5-5b6cc33c83c5"
+    udp: true
+    skip-cert-verify: true
+    servername: cdir-0303.wlfvip.shop
+  - name: "v2go - 🇩🇪 DE - TROJAN - 536"
+    type: trojan
+    server: alive-flea.rooster465.autos
+    port: 443
+    password: "UX82473651"
+    udp: true
+    skip-cert-verify: true
 
 proxy-groups:
-  - name: 🚀 自动挑选(YouTube优化)
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ⚡ 自动测速
+      - "v2go - 🇺🇸 US - TROJAN - 25"
+      - "v2go - 🇺🇸 US - TROJAN - 26"
+      - "v2go - 🇺🇸 US - TROJAN - 80"
+      - "v2go - 🇺🇸 US - TROJAN - 82"
+      - "v2go - TROJAN - 85"
+      - "v2go - TROJAN - 91"
+      - "v2go - TROJAN - 97"
+      - "v2go - TROJAN - 395"
+      - "v2go - 🇱🇺 LU - TROJAN - 400"
+      - "v2go - 🇷🇴 RO - TROJAN - 402"
+      - "v2go - 🇱🇺 LU - TROJAN - 409"
+      - "v2go - 🇳🇱 NL - TROJAN - 411"
+      - "v2go - 🇷🇴 RO - TROJAN - 413"
+      - "v2go - 🇷🇴 RO - TROJAN - 414"
+      - "v2go - 🇱🇺 LU - TROJAN - 415"
+      - "v2go - 🇺🇸 US - TROJAN - 465"
+      - "v2go - 🇩🇪 DE - TROJAN - 467"
+      - "v2go - 🇦🇺 AU - TROJAN - 501"
+      - "v2go - 🇩🇪 DE - TROJAN - 536"
+  - name: ⚡ 自动测速
     type: url-test
-    url: https://www.youtube.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-  - name: 🔰 节点选择
-    type: select
-    proxies:
-      - 🚀 自动挑选(YouTube优化)
+      - "v2go - 🇺🇸 US - TROJAN - 25"
+      - "v2go - 🇺🇸 US - TROJAN - 26"
+      - "v2go - 🇺🇸 US - TROJAN - 80"
+      - "v2go - 🇺🇸 US - TROJAN - 82"
+      - "v2go - TROJAN - 85"
+      - "v2go - TROJAN - 91"
+      - "v2go - TROJAN - 97"
+      - "v2go - TROJAN - 395"
+      - "v2go - 🇱🇺 LU - TROJAN - 400"
+      - "v2go - 🇷🇴 RO - TROJAN - 402"
+      - "v2go - 🇱🇺 LU - TROJAN - 409"
+      - "v2go - 🇳🇱 NL - TROJAN - 411"
+      - "v2go - 🇷🇴 RO - TROJAN - 413"
+      - "v2go - 🇷🇴 RO - TROJAN - 414"
+      - "v2go - 🇱🇺 LU - TROJAN - 415"
+      - "v2go - 🇺🇸 US - TROJAN - 465"
+      - "v2go - 🇩🇪 DE - TROJAN - 467"
+      - "v2go - 🇦🇺 AU - TROJAN - 501"
+      - "v2go - 🇩🇪 DE - TROJAN - 536"
 
 rules:
-  - DOMAIN-SUFFIX,youtube.com,🔰 节点选择
-  - DOMAIN-SUFFIX,googlevideo.com,🔰 节点选择
-  - DOMAIN-KEYWORD,github,🔰 节点选择
-  - DOMAIN-SUFFIX,cn,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,🔰 节点选择
+  - DOMAIN-SUFFIX,google.com,🚀 节点选择
+  - DOMAIN-KEYWORD,github,🚀 节点选择
+  - MATCH,🚀 节点选择
