@@ -1,17 +1,17 @@
 # V2Ray Config Update Summary
-Generated on: 2026-10-05 16:29:28 UTC
+Generated on: 2026-10-05 22:58:04 UTC
 
 ## Configuration Statistics
 - Total unique configurations: 1000
 - Protocol breakdown:
-  - vless: 915 configs
-  - trojan: 85 configs
+  - vless: 485 configs
+  - trojan: 515 configs
   - hy2: 0 configs
   - tuic: 0 configs
 
 ## Performance
-- Processing time: 42.90 seconds
-- Duplicate removal: 98.7% reduction (from 76211 to 1000)
+- Processing time: 44.64 seconds
+- Duplicate removal: 99.2% reduction (from 129187 to 1000)
 
 ## ⚠️ Failed Links (404 or Errors)
 The following sources could not be reached or returned no data:
@@ -20,5 +20,4 @@ The following sources could not be reached or returned no data:
 - https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt (HTTP 404)
 - https://raw.githubusercontent.com/miladtahanian/V2ray-Config/main/All_Configs_Sub.txt (HTTP 404)
 - https://v2.alicivil.workers.dev (Error)
-- https://raw.githubusercontent.com/Kolandone/v2raycollector/refs/heads/main/config.txt (Error)
 - https://raw.githubusercontent.com/shabane/kamaji/refs/heads/master/hub/merged.txt (Error)
